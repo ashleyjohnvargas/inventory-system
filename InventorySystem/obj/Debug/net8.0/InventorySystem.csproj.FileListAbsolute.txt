@@ -82,3 +82,4 @@ C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\Invent
 C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem\obj\Debug\net8.0\InventorySystem.csproj.AssemblyReference.cache
 C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem\obj\Debug\net8.0\Inventor.4967888A.Up2Date
+C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem\obj\Debug\net8.0\InventorySystem.sourcelink.json

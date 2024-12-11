@@ -22,6 +22,12 @@ namespace InventorySystem.Controllers
             return View(products); // Pass products to the view
         }
 
+        // GET: AddProduct
+        public IActionResult AddProduct()
+        {
+            return View();
+        }
+
         // POST: AddProduct
         [HttpPost]
         [ValidateAntiForgeryToken]
