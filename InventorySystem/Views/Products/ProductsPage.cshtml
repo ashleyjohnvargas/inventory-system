@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<h1>Manage Products</h1>
+
+<!-- Form to Add a New Product -->
+<h2>Add a New Product</h2>
+<form asp-action="AddProduct" method="post">
+    <div class="form-group">
+        <label for="Name">Product Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required>
+    </div>
+    <div class="form-group">
+        <label for="Description">Product Description</label>
+        <textarea class="form-control" id="Description" name="Description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Price">Base Price</label>
+        <input type="number" step="0.01" class="form-control" id="Price" name="Price" required>
+    </div>
+    <div class="form-group">
+        <label for="StockQuantity">Stock Quantity</label>
+        <input type="number" class="form-control" id="StockQuantity" name="StockQuantity" required>
+    </div>
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" class="form-control" id="Category" name="Category" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
+<!-- Display List of Products -->
+<h2>Existing Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock Quantity</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                <td>@product.StockQuantity</td>
+                <td>@product.Category</td>
+                <td>
+                    <a asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
+                    <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

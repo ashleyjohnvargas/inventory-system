@@ -1,0 +1,59 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5em 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.navbar-brand a {
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  margin-left: 1em;
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  padding: 1em;
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 1em;
+}

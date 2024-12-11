@@ -1,0 +1,28 @@
+@model InventorySystem.Models.Product
+
+<h1>Edit Product</h1>
+
+<form asp-action="EditProduct" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Name">Product Name</label>
+        <input type="text" class="form-control" asp-for="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Description">Product Description</label>
+        <textarea class="form-control" asp-for="Description" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Price">Base Price</label>
+        <input type="number" step="0.01" class="form-control" asp-for="Price" required />
+    </div>
+    <div class="form-group">
+        <label for="StockQuantity">Stock Quantity</label>
+        <input type="number" class="form-control" asp-for="StockQuantity" required />
+    </div>
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" class="form-control" asp-for="Category" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

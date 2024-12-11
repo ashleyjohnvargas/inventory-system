@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Inventory Management System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="#">IMS Dashboard</a>
+            </div>
+            <ul class="navbar-nav">
+                <li><a asp-controller="Dashboard" asp-action="DashboardPage">Dashboard</a></li>
+                <li><a asp-controller="Products" asp-action="ProductsPage">Manage Products</a></li>
+                <li><a asp-controller="Stock" asp-action="StockLevels">Stock Levels</a></li>
+                <li><a asp-controller="Reports" asp-action="ReportsPage">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Inventory Management System</p>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
