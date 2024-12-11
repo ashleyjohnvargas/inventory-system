@@ -15,24 +15,25 @@
     <header>
         <nav class="navbar">
             <div class="navbar-brand">
-                <a href="#">IMS Dashboard</a>
+                <a href="#">Inventory Management System</a>
             </div>
             <ul class="navbar-nav">
-                <li><a asp-controller="Dashboard" asp-action="DashboardPage">Dashboard</a></li>
+                <li><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
                 <li><a asp-controller="Products" asp-action="ProductsPage">Manage Products</a></li>
                 <li><a asp-controller="Profile" asp-action="ProfilePage">Profile</a></li>
-                <li><a asp-controller="Reports" asp-action="ReportsPage">Reports</a></li>
 
-                <!-- User session check -->
-                @if (Context.Session.GetString("UserId") != null)
-                {
-                    <li class="nav-item">
-                        <span>Welcome, @Context.Session.GetString("UserFullName")</span>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Login" asp-action="Logout" class="nav-link">Logout</a>
-                    </li>
-                }
+                <div>
+                    <!-- User session check -->
+                    @if (Context.Session.GetString("UserId") != null)
+                    {
+                        <li class="nav-item">
+                            <span>Welcome, @Context.Session.GetString("UserFullName")</span>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Login" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                </div>              
             </ul>
         </nav>
     </header>

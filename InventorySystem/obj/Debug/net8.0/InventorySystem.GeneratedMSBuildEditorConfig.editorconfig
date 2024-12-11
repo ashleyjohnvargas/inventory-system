@@ -18,8 +18,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Dashboard/DashboardPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZFBhZ2UuY3NodG1s
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Login/LoginPage.cshtml]
@@ -48,10 +48,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Profile/ProfilePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlUGFnZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Reports/ReportsPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xSZXBvcnRzUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Shared/Error.cshtml]

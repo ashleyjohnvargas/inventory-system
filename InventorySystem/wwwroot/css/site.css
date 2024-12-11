@@ -29,13 +29,10 @@ header {
   display: flex;
   margin: 0;
   padding: 0;
-  width: 500px; /*change this based on the width that can fit all the four nav links*/
+  width: 620px; /*change this based on the width that can fit all the four nav links*/
   flex-direction: row;
   justify-content: space-around;
-}
-
-.navbar-nav li {
-  margin-left: 1em;
+  gap: 15px;
 }
 
 .navbar-nav a {
@@ -48,8 +45,16 @@ header {
   text-decoration: underline;
 }
 
+.navbar-nav div {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .container {
   padding: 1em; 
+  min-height: 80vh; /* 80% of the viewport height, adjust as needed */
 }
 
 footer {

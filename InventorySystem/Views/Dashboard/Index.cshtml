@@ -1,0 +1,56 @@
+@model InventorySystem.Models.DashboardViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Inventory Dashboard</h1>
+    <p>Total Products: @Model.TotalProducts</p>
+    <h2>Top 3 Products by Quantity</h2>
+    <ul>
+        @foreach (var product in Model.TopProductsByQuantity)
+        {
+            <li>@product.Name - Quantity: @product.StockQuantity</li>
+        }
+    </ul>
+
+    <h2>Top 3 Products by Price</h2>
+    <ul>
+        @foreach (var product in Model.TopProductsByPrice)
+        {
+            <li>@product.Name - Price: @product.Price</li>
+        }
+    </ul>
+
+    <h2>Category with the Most Stock</h2>
+    <p>@Model.TopCategory</p>
+
+    <canvas id="productChart" width="400" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('productChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.Name))),
+                datasets: [{
+                    label: 'Top Products by Quantity',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.StockQuantity))),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

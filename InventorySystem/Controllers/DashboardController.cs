@@ -1,31 +1,53 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
+using System.Linq;
 
-namespace InventorySystem.Controllers;
-
-public class DashboardController : Controller
+namespace InventorySystem.Controllers
 {
-    private readonly ILogger<DashboardController> _logger;
-
-    public DashboardController(ILogger<DashboardController> logger)
+    public class DashboardController : Controller
     {
-        _logger = logger;
-    }
+        private readonly ApplicationDbContext _context;
 
-    public IActionResult DashboardPage()
-    {
-        if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+        public DashboardController(ApplicationDbContext context)
         {
-            return RedirectToAction("Index", "Login");
+            _context = context;
         }
 
-        return View();
-    }
+        public IActionResult Index()
+        {
+            // Total number of products
+            var totalProducts = _context.Products.Count();
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // Top 3 products with the highest quantity
+            var topProductsByQuantity = _context.Products
+                .OrderByDescending(p => p.StockQuantity)
+                .Take(3)
+                .ToList();
+
+            // Top 3 products with the highest price
+            var topProductsByPrice = _context.Products
+                .OrderByDescending(p => p.Price)
+                .Take(3)
+                .ToList();
+
+            // Category with the most stock
+            var topCategory = _context.Products
+                .GroupBy(p => p.Category)
+                .OrderByDescending(g => g.Sum(p => p.StockQuantity))
+                .Select(g => new { Category = g.Key, TotalStock = g.Sum(p => p.StockQuantity) })
+                .FirstOrDefault();
+
+            // Pass the data to the view
+            var viewModel = new DashboardViewModel
+            {
+                TotalProducts = totalProducts,
+                TopProductsByQuantity = topProductsByQuantity,
+                TopProductsByPrice = topProductsByPrice,
+                TopCategory = topCategory?.Category
+            };
+
+            return View(viewModel);
+        }
     }
 }

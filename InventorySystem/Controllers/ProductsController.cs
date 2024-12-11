@@ -15,11 +15,29 @@ namespace InventorySystem.Controllers
             _context = context;
         }
 
-        // GET: ProductsPage
-        public IActionResult ProductsPage()
+       // GET: ProductsPage
+        public IActionResult ProductsPage(int page = 1)
         {
-            var products = _context.Products.Where(p => !p.IsDeleted).ToList(); // Exclude soft-deleted products
-            return View(products);
+            int pageSize = 10;  // Number of products per page
+            var totalProducts = _context.Products.Count(p => !p.IsDeleted);  // Exclude soft-deleted products
+            var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);  // Calculate total pages
+
+            // Fetch the products for the current page
+            var products = _context.Products
+                                    .Where(p => !p.IsDeleted)  // Exclude soft-deleted products
+                                    .Skip((page - 1) * pageSize)  // Skip products from previous pages
+                                    .Take(pageSize)  // Take 10 products for the current page
+                                    .ToList();
+
+            var model = new PaginatedProductModel
+            {
+                Products = products,
+                CurrentPage = page,
+                TotalPages = totalPages,
+                PageSize = pageSize
+            };
+
+            return View(model);
         }
 
 
