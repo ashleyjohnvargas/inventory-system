@@ -1,0 +1,26 @@
+@model InventorySystem.Models.UserProfile
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="container mt-5">
+    <h2>Profile Details</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">Full Name</dt>
+        <dd class="col-sm-9">@Model.FullName</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+    </dl>
+
+    <a asp-action="EditProfile" class="btn btn-primary">Edit Profile</a>
+    <a asp-action="ChangePasswordPage" class="btn btn-primary">Change Password</a>
+</div>
