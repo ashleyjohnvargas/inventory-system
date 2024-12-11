@@ -18,9 +18,10 @@ namespace InventorySystem.Controllers
         // GET: ProductsPage
         public IActionResult ProductsPage()
         {
-            var products = _context.Products.ToList(); // Fetch all products
-            return View(products); // Pass products to the view
+            var products = _context.Products.Where(p => !p.IsDeleted).ToList(); // Exclude soft-deleted products
+            return View(products);
         }
+
 
         // GET: AddProduct
         public IActionResult AddProduct()
@@ -75,11 +76,13 @@ namespace InventorySystem.Controllers
             var product = _context.Products.Find(id);
             if (product != null)
             {
-                _context.Products.Remove(product);
+                product.IsDeleted = true; // Mark the product as deleted
+                _context.Products.Update(product);
                 _context.SaveChanges();
             }
             return RedirectToAction("ProductsPage");
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

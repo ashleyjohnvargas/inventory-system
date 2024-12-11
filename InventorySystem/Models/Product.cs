@@ -20,5 +20,6 @@ namespace InventorySystem.Models
 
         [Required]
         public required string Category { get; set; }
+        public bool IsDeleted { get; set; } // New column for soft delete
     }
 }
