@@ -14,7 +14,6 @@ header {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0 1em;
 }
@@ -30,6 +29,9 @@ header {
   display: flex;
   margin: 0;
   padding: 0;
+  width: 500px; /*change this based on the width that can fit all the four nav links*/
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .navbar-nav li {
@@ -47,7 +49,7 @@ header {
 }
 
 .container {
-  padding: 1em;
+  padding: 1em; 
 }
 
 footer {

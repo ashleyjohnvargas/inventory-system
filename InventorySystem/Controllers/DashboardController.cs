@@ -15,6 +15,11 @@ public class DashboardController : Controller
 
     public IActionResult DashboardPage()
     {
+        if (string.IsNullOrEmpty(HttpContext.Session.GetString("UserId")))
+        {
+            return RedirectToAction("Index", "Login");
+        }
+
         return View();
     }
 
