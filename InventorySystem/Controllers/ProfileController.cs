@@ -88,6 +88,7 @@ public class ProfileController : Controller
             profile.Email = model.Email;
 
             // Update email if changed
+            user.FullName = model.FullName;
             user.Email = model.Email;
 
             _context.SaveChanges();
