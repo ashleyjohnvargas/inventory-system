@@ -4,7 +4,8 @@ using InventorySystem.Models;
 
 namespace InventorySystem.Controllers
 {
-    public class ProductsController : Controller
+    [Route("api/[controller]")]
+    public class ProductsController : Controller // Don't create a web API controller by deriving from the Controller class. Controller derives from ControllerBase and adds support for views, so it's for handling web pages, not web API requests. There's an exception to this rule: if you plan to use the same controller for both views and web APIs, derive it from Controller.
     {
         private readonly ILogger<ProductsController> _logger;
         private readonly ApplicationDbContext _context;
@@ -15,7 +16,8 @@ namespace InventorySystem.Controllers
             _context = context;
         }
 
-       // GET: ProductsPage
+        // MVC Route: ProductsPage
+        [HttpGet("/ProductsPage")]
         public IActionResult ProductsPage(int page = 1)
         {
             int pageSize = 10;  // Number of products per page
@@ -41,14 +43,15 @@ namespace InventorySystem.Controllers
         }
 
 
-        // GET: AddProduct
+        // MVC Route: AddProduct
+        [HttpGet("/AddProduct")]
         public IActionResult AddProduct()
         {
             return View();
         }
 
         // POST: AddProduct
-        [HttpPost]
+        [HttpPost("/AddProduct")]
         [ValidateAntiForgeryToken]
         public IActionResult AddProduct(Product product)
         {
@@ -72,8 +75,8 @@ namespace InventorySystem.Controllers
             return View(product);
         }
 
-        // POST: EditProduct
-        [HttpPost]
+        // POST: AddProduct
+        [HttpPost("/EditProduct")]
         [ValidateAntiForgeryToken]
         public IActionResult EditProduct(Product product)
         {
@@ -87,7 +90,8 @@ namespace InventorySystem.Controllers
         }
 
         // POST: DeleteProduct
-        [HttpPost]
+        // POST: AddProduct
+        [HttpPost("/DeleteProduct")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteProduct(int id)
         {
@@ -99,6 +103,16 @@ namespace InventorySystem.Controllers
                 _context.SaveChanges();
             }
             return RedirectToAction("ProductsPage");
+        }
+
+        // API Endpoint: GetAllProducts
+        [HttpGet("GetAllProducts")]
+        public IActionResult GetAllProducts()
+        {
+            var products = _context.Products
+                           .Where(p => !p.IsDeleted) // Exclude soft-deleted products
+                           .ToList(); 
+            return Ok(products);
         }
 
 

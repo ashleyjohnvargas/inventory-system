@@ -10,6 +10,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add services to the container.
+// Ensure CORS (Cross-Origin Resource Sharing) is enabled to allow requests from the Ecommerce System.
+builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowEcommerceSystem", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
 // Add session services to the container
 builder.Services.AddDistributedMemoryCache(); // Adds in-memory caching for session
 builder.Services.AddSession(options =>
@@ -33,6 +44,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseCors("AllowEcommerceSystem");
 
 // Add session middleware to the request pipeline
 app.UseSession(); // This should come before UseAuthorization
