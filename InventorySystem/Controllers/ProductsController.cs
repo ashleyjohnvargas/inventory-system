@@ -83,7 +83,7 @@ namespace InventorySystem.Controllers
         }
 
         // GET: EditProduct
-        public IActionResult EditProduct(int id)
+        public IActionResult EditProductPage(int id)
         {
             var product = _context.Products.Find(id);
             if (product == null)
