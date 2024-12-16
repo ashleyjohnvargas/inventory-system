@@ -7,7 +7,7 @@
 <h1>Manage Products</h1>
     
 <div class="d-flex flex-row justify-content-end">
-    <a asp-action="AddProduct" class="btn btn-warning">Add Product</a>
+    <a asp-action="AddProductPage" class="btn btn-warning">Add Product</a>
 </div>
 
 <!-- Display List of Products -->
@@ -32,7 +32,7 @@
                 <td>@product.StockQuantity</td>
                 <td>@product.Category</td>
                 <td>
-                    <a asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Products"asp-action="EditProduct" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
                     <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" style="display:inline;">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>

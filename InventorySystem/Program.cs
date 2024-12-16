@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// AddControllersWithViews() is added as a service because controllers in this system return Views
 builder.Services.AddControllersWithViews();
 
 // Configure DbContext
@@ -11,8 +12,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
+// AddControllers() is different from AddControllersWithViews().
+// AddControllers() is added as a service in this container because the controllers in the Controllers folder also
+// contain methods or actions that are for API purposes, not just for returning Views.
+// In this system, Inventory System, the ProductsController in the Controllers folder contain actions or methods both for returning
+// Views and API routes. And since the ProductsController handles both MVC View routes and API routes, the AddControllers() service
+// should be added in the container as you can see below. But if "ALL" the Controllers in a specific system are only used for
+// returning Views, then AddControllers() doesn't need to be added in the containera anymore. It is added down below because
+// the Contollers in this system, particularly in ProductsController, contains both MVC Views routes and API routes.
+// If you observe ProductsController, it is inheriting from Controller class and not ControllerBase, because that contoller is used
+// both for MVC Views routes and API routes. Meaning, it contain methods/actions that return Views, perform CRUDS operations,
+// and methods/action for API routes/API endpoints, which are used by other system such as EcommerceSystem to connect or integrate
+// with this system, the INventory system.
+builder.Services.AddControllers(); 
 // Ensure CORS (Cross-Origin Resource Sharing) is enabled to allow requests from the Ecommerce System.
-builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowEcommerceSystem", policy =>
