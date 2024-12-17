@@ -116,6 +116,9 @@ namespace InventorySystem.Controllers
                 product.IsDeleted = true; // Mark the product as deleted
                 _context.Products.Update(product);
                 _context.SaveChanges();
+
+                // Set a success message using TempData
+                TempData["SuccessMessage"] = "Product deleted successfully.";
             }
             return RedirectToAction("ProductsPage");
         }

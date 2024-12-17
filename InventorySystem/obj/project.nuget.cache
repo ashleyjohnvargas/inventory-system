@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c1gaJO+7BSk=",
+  "dgSpecHash": "zgpdZgDXsss=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\InventorySystem.csproj",
+  "projectFilePath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Angel\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Angel\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

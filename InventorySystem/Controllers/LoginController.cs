@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventorySystem.Controllers
 {

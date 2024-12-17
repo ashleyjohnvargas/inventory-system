@@ -1,0 +1,129 @@
+/* for styling alert message */
+.alert .close {
+    font-size: 12px; /* Adjust size of the 'X' */
+    color: #000; /* Change the color of the 'X' */
+    opacity: 0.8;
+}
+
+.alert .close:hover {
+    opacity: 1; /* Add hover effect */
+}
+
+/* Center the table on the page with fade-in effect */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1.5s forwards; /* Added animation for fade-in */
+}
+
+/* Fade-in animation for table */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Custom styling for icons to make them bigger */
+.cust-icon {
+    font-size: 24px;  /* Increase the icon size */
+    display: inline-block;
+    text-align: center;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.btn-sm {
+    display: inline-block; /* Make buttons inline-block */
+    width: 40px; /* Adjust width if needed */
+    height: 40px; /* Adjust height if needed */
+    padding: 0; /* Remove padding */
+    margin-right: 5px; /* Space between buttons */
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-sm i {
+    font-size: 1.2rem; /* Increase icon size inside the button */
+}
+
+.btn-sm:hover {
+    transform: scale(1.1);
+    background-color: #ff6f61; /* Change background on hover */
+}
+
+/* Hover effect for edit and delete icons */
+.action-container a:hover,
+.action-container button:hover {
+    transform: scale(1.2);
+    color: #ff6f61; /* Change icon color on hover */
+}
+
+/* Hover effect for the "Add Product" button */
+.btn-success:hover {
+    transform: scale(1.1);
+    background-color: #28a745; /* Change background color */
+}
+
+/* Set the max-width for the description column but allow wrapping text */
+.description-column {
+    max-width: 290px;  /* Set a shorter width */
+    word-wrap: break-word;  /* Allow the text to wrap */
+}
+
+/* Set width for Name, DateAdded, and Actions columns */
+th:nth-child(1), td:nth-child(1) { /* Name Column */
+    min-width: 160px;
+}
+
+th:nth-child(3), td:nth-child(3) { /* Name Column */
+    min-width: 140px;
+}
+
+th:nth-child(6), td:nth-child(6) { /* Date Added Column */
+    min-width: 150px;
+}
+
+th:nth-child(7), td:nth-child(7) { /* Actions Column */
+    min-width: 150px;
+}
+
+/* Center-align the headers for Price, Stock Quantity, Category, Date Added, and Actions columns */
+th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7),
+td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+    text-align: center;
+}
+
+/* Styling for the table to make sure it takes up full width but is centered */
+.table {
+    width: 100%;
+    max-width: 90%; /* Limit the max width of the table */
+}
+
+/* Pagination Styling */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.pagination-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.action-butt {
+    padding: 7px;
+    margin: 0;
+    width: 40px;
+    margin-right: 2px;
+}

@@ -1,28 +1,146 @@
 @model InventorySystem.Models.Product
+@Html.AntiForgeryToken()
 
-<h1>Edit Product</h1>
+<!-- Include CSS files -->
+<link rel="stylesheet" href="~/css/addproduct.css" asp-append-version="true" />
 
-<form asp-action="EditProduct" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div class="form-group">
-        <label for="Name">Product Name</label>
-        <input type="text" class="form-control" asp-for="Name" required />
+<div class="fade-in">
+    <!-- Page Header with Go Back Icon -->
+    <div class="d-flex align-items-center mb-4" style="width: 1000px; margin: 30px 0 0 26px;">
+        <a asp-action="ProductsPage" class="text-decoration-none me-3 text-dark" title="Go Back">
+            <i class="fa-solid fa-arrow-left fs-3"></i>
+        </a>
+        <h2 class="mb-0 fw-bold" style="font-size: 1.8rem; color: #343a40;">Edit Product</h2>
     </div>
-    <div class="form-group">
-        <label for="Description">Product Description</label>
-        <textarea class="form-control" asp-for="Description" rows="3" required></textarea>
+
+    <!-- Centered Form in a Card -->
+    <div class="container d-flex justify-content-center" style="margin-bottom: 80px;">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
+            <div class="card-body">
+                <form asp-action="EditProduct" method="post">
+                    <!-- Hidden Product ID -->
+                    <input type="hidden" asp-for="Id" />
+
+                    <!-- Product Name -->
+                    <div class="form-group mb-4">
+                        <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Name</label>
+                        <input type="text" class="form-control form-control-lg" id="Name" asp-for="Name" required />
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="form-group mb-4">
+                        <label for="Description" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Description</label>
+                        <textarea class="form-control form-control-lg" id="Description" asp-for="Description" rows="3" placeholder="Enter a brief description..." required></textarea>
+                    </div>
+
+                    <!-- Base Price -->
+                    <div class="form-group mb-4">
+                        <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price</label>
+                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" asp-for="Price" placeholder="e.g., 59.99" required />
+                    </div>
+
+                    <!-- Stock Quantity -->
+                    <div class="form-group mb-4">
+                        <label for="StockQuantity" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Stock Quantity</label>
+                        <input type="number" class="form-control form-control-lg" id="StockQuantity" asp-for="StockQuantity" placeholder="e.g., 100" required />
+                    </div>
+
+                    <!-- Category -->
+                    <div class="form-group mb-4">
+                        <label for="Category" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Category</label>
+                        <input type="text" class="form-control form-control-lg" id="Category" asp-for="Category" placeholder="e.g., Electronics" required />
+                    </div>
+
+                    <!-- Date Added -->
+                    <div class="form-group mb-4">
+                        <label for="DateAdded" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Date Added</label>
+                        <input type="text" id="DateAdded" class="form-control form-control-lg" asp-for="DateAdded" placeholder="Select date" required />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
+                            <i class="fa-solid fa-check-circle me-2"></i> Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Price">Base Price</label>
-        <input type="number" step="0.01" class="form-control" asp-for="Price" required />
-    </div>
-    <div class="form-group">
-        <label for="StockQuantity">Stock Quantity</label>
-        <input type="number" class="form-control" asp-for="StockQuantity" required />
-    </div>
-    <div class="form-group">
-        <label for="Category">Category</label>
-        <input type="text" class="form-control" asp-for="Category" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-</form>
+</div>
+
+<!-- Include Flatpickr CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Flatpickr Initialization -->
+<script>
+    flatpickr("#DateAdded", {
+        dateFormat: "Y-m-d",
+        defaultDate: "@Model.DateAdded.ToString("yyyy-MM-dd")",
+        enableTime: false
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        fadeInElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out';
+                el.style.opacity = 1;
+                el.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    });
+</script>
+
+<!-- Custom Styling -->
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: auto 1000px;
+        margin-bottom: 50px;
+    }
+
+    h2 {
+        color: #495057;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        border-color: #80bdff;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    .fw-semibold {
+        font-weight: 600;
+    }
+</style>

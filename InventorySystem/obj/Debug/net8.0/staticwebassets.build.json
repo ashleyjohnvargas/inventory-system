@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fa7rgFTcsspZbKJDyw9nxD1NWAmlcskRIzJ9Ki+wJT4=",
+  "Hash": "fjjLZpQ9sKVTXWrbv2hpTClH1H8Xrep3LGl47OaLy4c=",
   "Source": "InventorySystem",
   "BasePath": "_content/InventorySystem",
   "Mode": "Default",
@@ -10,17 +10,93 @@
     {
       "Name": "InventorySystem\\wwwroot",
       "Source": "InventorySystem",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\css\\addproduct.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "css/addproduct.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\addproduct.css"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\css\\dashboard.css",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "css/dashboard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\css\\loginpage.css",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "css/loginpage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\loginpage.css"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\css\\productspage.css",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "css/productspage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\productspage.css"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\css\\site.css",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -36,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\favicon.ico",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -55,10 +131,105 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\images\\ecommerce-inventory-system-high-resolution-logo-removebg-preview (1).png",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "images/ecommerce-inventory-system-high-resolution-logo-removebg-preview (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ecommerce-inventory-system-high-resolution-logo-removebg-preview (1).png"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\images\\fast-delivery.png",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "images/fast-delivery.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fast-delivery.png"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\images\\home.png",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "images/home.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\home.png"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\images\\INVENTORYLOGO-2-removebg-preview.png",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "images/INVENTORYLOGO-2-removebg-preview.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\INVENTORYLOGO-2-removebg-preview.png"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\js\\loginpage.js",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
+      "BasePath": "_content/InventorySystem",
+      "RelativePath": "js/loginpage.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\loginpage.js"
+    },
+    {
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\js\\site.js",
+      "SourceId": "InventorySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -74,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -93,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -112,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -131,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -150,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -169,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -188,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -207,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -226,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -245,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -264,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -283,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -302,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -321,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -340,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -359,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -378,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -397,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -416,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -435,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -454,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -473,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -492,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -511,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -530,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -549,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -568,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -587,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -606,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -625,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -644,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -663,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -682,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -701,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -720,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -739,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -758,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -777,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -796,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -815,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -834,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -853,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -872,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -891,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -910,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -929,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -948,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -967,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -986,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1005,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1024,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1043,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1062,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1081,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1100,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1119,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1138,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "InventorySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\wwwroot\\",
       "BasePath": "_content/InventorySystem",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",

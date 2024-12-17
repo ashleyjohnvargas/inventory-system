@@ -22,5 +22,8 @@ namespace InventorySystem.Models
         [Required]
         public required string Category { get; set; }
         public bool IsDeleted { get; set; } // New column for soft delete
+        [Required]
+        public DateTime DateAdded { get; set; } // New column for the date the product was added
+
     }
 }

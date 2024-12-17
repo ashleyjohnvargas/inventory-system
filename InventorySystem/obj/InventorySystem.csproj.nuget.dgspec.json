@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\InventorySystem.csproj": {}
+    "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\InventorySystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\InventorySystem.csproj": {
+    "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\InventorySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\InventorySystem.csproj",
+        "projectUniqueName": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
         "projectName": "InventorySystem",
-        "projectPath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\InventorySystem.csproj",
+        "projectPath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\InventorySystem.csproj",
         "packagesPath": "C:\\Users\\Angel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\MVCPractice_Inventory\\InventorySystem\\obj\\",
+        "outputPath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Angel\\AppData\\Roaming\\NuGet\\NuGet.Config",

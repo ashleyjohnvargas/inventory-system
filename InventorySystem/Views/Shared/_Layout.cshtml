@@ -6,47 +6,95 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Inventory Management System</title>
+    <title>@ViewData["Title"] Inventory Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styling for the Welcome message */
+        .welcome-message {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .custom-icon {
+            color:#ffb703;
+        }
+
+        .navbar-nav li {
+            transition: all 0.4s ease-in-out;
+        }
+
+        .navbar-nav li:hover {
+            text-decoration: none;
+            color:#ffb703;
+            transform: translateX(5px);
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <a href="#">Inventory Management System</a>
-            </div>
-            <ul class="navbar-nav">
-                <li><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
-                <li><a asp-controller="Products" asp-action="ProductsPage">Manage Products</a></li>
-                <li><a asp-controller="Profile" asp-action="ProfilePage">Profile</a></li>
+    <div class="parent-container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <img style="width:80px; height: 70px;" src="~/images/fast-delivery.png">
+                    <a href="#" style="font-weight: bold;">StockXZ</a>
+                </div>
+                <ul class="navbar-nav">
+                    <li>
+                        <i class="fa-solid fa-house custom-icon"></i>
+                        <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-screwdriver-wrench custom-icon"></i>
+                        <a asp-controller="Products" asp-action="ProductsPage">Manage Products</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-user custom-icon"></i>
+                        <a style="margin-left:1px;" asp-controller="Profile" asp-action="ProfilePage">Profile</a>
+                    </li>
+                    <div>
+                        <!-- User session check -->
+                        @if (Context.Session.GetString("UserId") != null)
+                        {
+                            <li class="nav-item">
+                                <i class="fa-solid fa-right-from-bracket custom-icon"></i>
+                                <a asp-controller="Login" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                    </div>              
+                </ul>
+            </nav>
+        </header>
 
-                <div>
-                    <!-- User session check -->
-                    @if (Context.Session.GetString("UserId") != null)
-                    {
-                        <li class="nav-item">
-                            <span>Welcome, @Context.Session.GetString("UserFullName")</span>
-                        </li>
-                        <li class="nav-item">
-                            <a asp-controller="Login" asp-action="Logout">Logout</a>
-                        </li>
-                    }
-                </div>              
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
+        <!-- Positioned Welcome message at the top right -->
+        @if (Context.Session.GetString("UserId") != null)
+        {
+            <div class="welcome-message">
+                Welcome, @Context.Session.GetString("UserFullName")
+            </div>
+        }
+
+        <main>
             @RenderBody()
-        </div>
-    </main>
+        </main>
+    </div>
+
     <footer>
         <p>© 2024 Inventory Management System</p>
     </footer>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

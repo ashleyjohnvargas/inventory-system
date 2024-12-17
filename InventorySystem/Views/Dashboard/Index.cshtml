@@ -1,56 +1,221 @@
 @model InventorySystem.Models.DashboardViewModel
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
 </head>
 <body>
-    <h1>Inventory Dashboard</h1>
-    <p>Total Products: @Model.TotalProducts</p>
-    <h2>Top 3 Products by Quantity</h2>
-    <ul>
-        @foreach (var product in Model.TopProductsByQuantity)
-        {
-            <li>@product.Name - Quantity: @product.StockQuantity</li>
-        }
-    </ul>
+    <h1 style="margin-left: 6px; margin-bottom: 10px;">Dashboard</h1>
+    <div class="container">
+        <!-- Row 1: Product Additions Today, This Week, This Month, This Year -->
+        <div class="row">
+            <div class="card">
+                <h3>Products Added Today</h3>
+                <p>@Model.ProductsAddedToday</p>
+            </div>
+            <div class="card">
+                <h3>Products This Week</h3>
+                <p>@Model.ProductsAddedThisWeek</p>
+            </div>
+            <div class="card">
+                <h3>Products This Month</h3>
+                <p>@Model.ProductsAddedThisMonth</p>
+            </div>
+            <div class="card">
+                <h3>Products This Year</h3>
+                <p>@Model.ProductsAddedThisYear</p>
+            </div>
+        </div>
 
-    <h2>Top 3 Products by Price</h2>
-    <ul>
-        @foreach (var product in Model.TopProductsByPrice)
-        {
-            <li>@product.Name - Price: @product.Price</li>
-        }
-    </ul>
+        <!-- Row 2: Total Available and Out-of-Stock Products -->
+        <div class="row">
+            <div class="card">
+                <h3>Total Available Products</h3>
+                <p>@Model.TotalProducts</p>
+            </div>
+            <div class="card">
+                <h3>Total Out-of-Stock Products</h3>
+                <p>@Model.OutOfStockProducts</p>
+            </div>
+        </div>
 
-    <h2>Category with the Most Stock</h2>
-    <p>@Model.TopCategory</p>
+        <!-- Row 3: Top 5 Products Charts -->
+        <div class="row">
+            <div class="chart-container">
+                <h3>Top 5 Products by Quantity</h3>
+                <canvas id="quantityChart" width="180" height="180"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Top 5 Products by Price</h3>
+                <canvas id="priceChart" width="180" height="180"></canvas>
+            </div>
+        </div>
 
-    <canvas id="productChart" width="400" height="200"></canvas>
+        <!-- Row 4: Top 8 Categories by Stock -->
+        <div class="row">
+            <div class="chart-container">
+                <h3>Top 8 Categories by Stock</h3>
+                <canvas id="categoryChart" width="180" height="180"></canvas>
+            </div>
+        </div>
+    </div>
+
     <script>
-        var ctx = document.getElementById('productChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'bar',
+        // Top 5 Products by Quantity (Pie Chart)
+        var quantityChartCtx = document.getElementById('quantityChart').getContext('2d');
+        var quantityChart = new Chart(quantityChartCtx, {
+            type: 'pie',
             data: {
                 labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.Name))),
                 datasets: [{
                     label: 'Top Products by Quantity',
                     data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.StockQuantity))),
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: ['#caf0f8', '#588157', '#fb6f92', '#43291f', '#ffd6ff'],
+                    borderColor: '#14213d',
                     borderWidth: 1
                 }]
             },
             options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
                     }
                 }
             }
         });
+
+        // Top 5 Products by Price (Bar Chart)
+        var priceChartCtx = document.getElementById('priceChart').getContext('2d');
+        var priceChart = new Chart(priceChartCtx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByPrice.Select(p => p.Name))),
+                datasets: [{
+                    label: 'Top Products by Price',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByPrice.Select(p => p.Price))),
+                    backgroundColor: '#43291f',
+                    borderColor: '#fb6f92',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Disable to allow manual sizing
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Top 8 Categories by Stock (Bar Chart)
+        var categoryChartCtx = document.getElementById('categoryChart').getContext('2d');
+        var categoryChart = new Chart(categoryChartCtx, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopCategoriesByStock.Select(c => c.CategoryName))),
+                datasets: [{
+                    label: 'Top Categories by Stock',
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopCategoriesByStock.Select(c => c.StockQuantity))),
+                    backgroundColor: '#2b2d42',
+                    borderColor: '#fca311',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Disable to allow manual sizing
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#faf0ca',
+                            font: { size: 16 }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Helper function to update chart label colors
+        function updateChartColors(chart, color) {
+            chart.options.scales.x.ticks.color = color; // Update x-axis label color
+            chart.options.scales.y.ticks.color = color; // Update y-axis label color
+            chart.options.plugins.legend.labels.color = color; // Update legend label color
+            chart.update(); // Apply the changes
+        }
+
+        // Add hover effects for Quantity Chart
+        var quantityChartContainer = document.querySelector('.chart-container:nth-child(1)');
+        quantityChartContainer.addEventListener('mouseenter', function () {
+            updateChartColors(quantityChart, '#2b2d42'); // Highlight color on hover
+        });
+        quantityChartContainer.addEventListener('mouseleave', function () {
+            updateChartColors(quantityChart, '#faf0ca'); // Revert to default color
+        });
+
+        // Add hover effects for Price Chart
+        var priceChartContainer = document.querySelector('.chart-container:nth-child(2)');
+        priceChartContainer.addEventListener('mouseenter', function () {
+            updateChartColors(priceChart, '#2b2d42'); // Highlight color on hover
+        });
+        priceChartContainer.addEventListener('mouseleave', function () {
+            updateChartColors(priceChart, '#faf0ca'); // Revert to default color
+        });
+
+        // Add hover effects for Category Chart
+        var categoryChartContainer = document.querySelector('.chart-container:nth-child(3)');
+        categoryChartContainer.addEventListener('mouseenter', function () {
+            updateChartColors(categoryChart, '#2b2d42'); // Highlight color on hover
+        });
+        categoryChartContainer.addEventListener('mouseleave', function () {
+            updateChartColors(categoryChart, '#faf0ca'); // Revert to default color
+        });
+
     </script>
 </body>
 </html>

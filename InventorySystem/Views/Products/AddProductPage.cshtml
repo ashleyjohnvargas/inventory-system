@@ -1,28 +1,95 @@
 @model InventorySystem.Models.Product
-@Html.AntiForgeryToken() <!-- required for all html with forms -->
+@Html.AntiForgeryToken()
 
-<!-- Form to Add a New Product -->
-<h2>Add a New Product</h2>
-<form asp-action="AddProduct" method="post">
-    <div class="form-group">
-        <label for="Name">Product Name</label>
-        <input type="text" class="form-control" id="Name" name="Name" required>
+<!-- Include CSS files -->
+    <link rel="stylesheet" href="~/css/addproduct.css" asp-append-version="true" />
+
+
+<div class="fade-in">
+    <!-- Page Header with Go Back Icon -->
+    <div class="d-flex align-items-center mb-4" style="width: 1000px; margin: 30px 0 0 26px;">
+        <a asp-action="ProductsPage" class="text-decoration-none me-3 text-dark" title="Go Back">
+            <i class="fa-solid fa-arrow-left fs-3"></i>
+        </a>
+        <h2 class="mb-0 fw-bold" style="font-size: 1.8rem; color: #343a40;">Add a New Product</h2>
     </div>
-    <div class="form-group">
-        <label for="Description">Product Description</label>
-        <textarea class="form-control" id="Description" name="Description" rows="3" required></textarea>
+
+    <!-- Centered Form in a Card -->
+    <div class="container d-flex justify-content-center" style="margin-bottom: 80px;">
+        <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
+            <div class="card-body">
+                <form asp-action="AddProduct" method="post">
+                    <!-- Product Name -->
+                    <div class="form-group mb-4">
+                        <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Name</label>
+                        <input type="text" class="form-control form-control-lg" id="Name" name="Name" placeholder="e.g., Wireless Mouse" required>
+                    </div>
+
+                    <!-- Product Description -->
+                    <div class="form-group mb-4">
+                        <label for="Description" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Description</label>
+                        <textarea class="form-control form-control-lg" id="Description" name="Description" rows="3" placeholder="Enter a brief description..." required></textarea>
+                    </div>
+
+                    <!-- Base Price -->
+                    <div class="form-group mb-4">
+                        <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price</label>
+                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" name="Price" placeholder="e.g., 59.99" required>
+                    </div>
+
+                    <!-- Stock Quantity -->
+                    <div class="form-group mb-4">
+                        <label for="StockQuantity" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Stock Quantity</label>
+                        <input type="number" class="form-control form-control-lg" id="StockQuantity" name="StockQuantity" placeholder="e.g., 100" required>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="form-group mb-4">
+                        <label for="Category" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Category</label>
+                        <input type="text" class="form-control form-control-lg" id="Category" name="Category" placeholder="e.g., Electronics" required>
+                    </div>
+
+                    <!-- Date Added -->
+                    <div class="form-group mb-4">
+                        <label for="DateAdded" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Date Added</label>
+                        <input type="text" id="DateAdded" class="form-control form-control-lg" name="DateAdded" placeholder="Select date" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
+                            <i class="fa-solid fa-check-circle me-2"></i> Add Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="Price">Base Price</label>
-        <input type="number" step="0.01" class="form-control" id="Price" name="Price" required>
-    </div>
-    <div class="form-group">
-        <label for="StockQuantity">Stock Quantity</label>
-        <input type="number" class="form-control" id="StockQuantity" name="StockQuantity" required>
-    </div>
-    <div class="form-group">
-        <label for="Category">Category</label>
-        <input type="text" class="form-control" id="Category" name="Category" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Add Product</button>
-</form>
+</div>
+
+
+<!-- Include Flatpickr CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Flatpickr Initialization -->
+<script>
+    flatpickr("#DateAdded", {
+        dateFormat: "Y-m-d",
+        defaultDate: new Date(),
+        enableTime: false
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        fadeInElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                el.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out';
+                el.style.opacity = 1;
+                el.style.transform = 'translateY(0)';
+            }, 100); // Delay to ensure smooth animation
+        });
+    });
+</script>

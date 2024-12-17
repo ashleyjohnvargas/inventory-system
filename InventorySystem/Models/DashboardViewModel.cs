@@ -7,6 +7,11 @@ namespace InventorySystem.Models
         public int TotalProducts { get; set; }
         public List<Product> TopProductsByQuantity { get; set; }
         public List<Product> TopProductsByPrice { get; set; }
-        public string TopCategory { get; set; }
+        public List<CategoryStock> TopCategoriesByStock { get; set; } 
+        public int OutOfStockProducts{ get; set; } 
+        public int ProductsAddedToday { get; set; }
+        public int ProductsAddedThisWeek { get; set; }
+        public int ProductsAddedThisMonth { get; set; }
+        public int ProductsAddedThisYear { get; set; }
     }
 }

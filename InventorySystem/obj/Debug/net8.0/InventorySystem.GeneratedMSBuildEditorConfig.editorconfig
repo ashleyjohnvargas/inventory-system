@@ -9,63 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InventorySystem
 build_property.RootNamespace = InventorySystem
-build_property.ProjectDir = C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem\
+build_property.ProjectDir = C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\InventorySystem\InventorySystem\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\MVCPractice_Inventory\InventorySystem
+build_property.MSBuildProjectDirectory = C:\Users\Angel\OneDrive\Documents\ashley\WebDevPrac\InventorySystem\InventorySystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Dashboard/Index.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Login/LoginPage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Login/LoginPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5QYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Products/AddProductPage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Products/AddProductPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQWRkUHJvZHVjdFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Products/EditProductPage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Products/EditProductPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdFByb2R1Y3RQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Products/ProductsPage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Products/ProductsPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcUHJvZHVjdHNQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Profile/ChangePasswordPage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Profile/ChangePasswordPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxDaGFuZ2VQYXNzd29yZFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Profile/EditProfile.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Profile/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Profile/ProfilePage.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Profile/ProfilePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Shared/Error.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Shared/_Layout.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/_ViewImports.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/MVCPractice_Inventory/InventorySystem/Views/_ViewStart.cshtml]
+[C:/Users/Angel/OneDrive/Documents/ashley/WebDevPrac/InventorySystem/InventorySystem/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
