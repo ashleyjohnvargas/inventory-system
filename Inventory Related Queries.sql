@@ -3,9 +3,10 @@ CREATE TABLE Products (
 	Name nvarchar(255) NOT NULL,
 	Description nvarchar(max) NOT NULL,
 	Price decimal(18, 2) NOT NULL,
+	Category VARCHAR(50) NOT NULL,
 	StockQuantity int NOT NULL,
-	Category nvarchar(255) NOT NULL,
-	IsDeleted bit NOT NULL
+	IsDeleted bit NOT NULL,
+	-- remove the Category later then add CategoryId
 );
 
 CREATE TABLE Users (
@@ -22,5 +23,14 @@ CREATE TABLE UserProfile (
     PhoneNumber NVARCHAR(50) NOT NULL, -- Required
     Address NVARCHAR(500) NOT NULL -- Required
 );
+
+CREATE TABLE Categories (
+    CategoryId INT IDENTITY(1,1)
+    CONSTRAINT PK_Categories PRIMARY KEY,
+    CategoryName VARCHAR(50),
+    IsDeleted BIT NOT NULL
+    CONSTRAINT DF_IsDeleted DEFAULT 0
+)
+
 
 
