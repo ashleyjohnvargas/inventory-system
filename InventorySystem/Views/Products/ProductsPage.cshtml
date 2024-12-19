@@ -26,7 +26,7 @@
     </div>
 }
 
-<div class="d-flex flex-row justify-content-end mb-3" style="width: 1076px; margin-left: 75px;">
+<div class="d-flex flex-row justify-content-end mb-3" style="width: 1076px; margin-left: 162px; padding-left: 60px;">
     <a asp-action="AddProductPage" class="btn btn-success"><i class="fa-solid fa-plus-circle"></i> Add Product</a>
 </div>
 
@@ -38,8 +38,12 @@
                 <th>Name</th>
                 <th class="description-column">Description</th>
                 <th>Price</th>
-                <th>Stock Quantity</th>
+                <th>Color</th>
                 <th>Category</th>
+                <th>Original Stock</th>
+                <th>Current Stock</th>
+                <th>Stock Status</th>
+                <th>Is Being Sold</th>
                 <th>Date Added</th>
                 <th>Actions</th>
             </tr>
@@ -51,8 +55,12 @@
                     <td>@product.Name</td>
                     <td class="description-column">@product.Description</td>
                     <td>@string.Format("{0:C}", product.Price)</td>
-                    <td>@product.StockQuantity</td>
+                    <td>@product.Color</td>
                     <td>@product.Category</td>
+                    <td>@product.OriginalStock</td>
+                    <td>@product.CurrentStock</td>
+                    <td>@product.StockStatus</td>
+                    <td>@(product.IsBeingSold ? "Yes" : "No")</td>
                     <td>@product.DateAdded.ToString("yyyy-MM-dd")</td>
                     <td class="action-container">
                          <!-- Edit Button with Pencil Icon -->
@@ -87,6 +95,7 @@
         <a asp-action="ProductsPage" asp-route-page="@(Model.CurrentPage + 1)" class="btn btn-success btn-sm">Next &gt;</a>
     }
 </div>
+
 
 @section Scripts {
     <script>

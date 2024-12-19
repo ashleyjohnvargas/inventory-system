@@ -20,12 +20,12 @@ namespace InventorySystem.Controllers
             var totalProducts = _context.Products.Count(p => !p.IsDeleted);
 
             // Total number of out-of-stock products (either IsDeleted is true OR StockQuantity is 0)
-            var outOfStockProducts = _context.Products.Count(p => !p.IsDeleted && p.StockQuantity == 0);
+            var outOfStockProducts = _context.Products.Count(p => !p.IsDeleted && p.CurrentStock == 0);
 
             // Top 3 products with the highest quantity
             var topProductsByQuantity = _context.Products
                 .Where(p => !p.IsDeleted)  // Exclude deleted products
-                .OrderByDescending(p => p.StockQuantity)
+                .OrderByDescending(p => p.CurrentStock)
                 .Take(5)
                 .ToList();
 
@@ -40,12 +40,12 @@ namespace InventorySystem.Controllers
             var topCategoriesByStock = _context.Products
                 .Where(p => !p.IsDeleted)  // Exclude deleted products
                 .GroupBy(p => p.Category)
-                .OrderByDescending(g => g.Sum(p => p.StockQuantity))
+                .OrderByDescending(g => g.Sum(p => p.CurrentStock))
                 .Take(8)
                 .Select(g => new CategoryStock
                 {
                     CategoryName = g.Key,
-                    StockQuantity = g.Sum(p => p.StockQuantity)
+                    StockQuantity = g.Sum(p => p.CurrentStock)
                 })
                 .ToList();
 

@@ -53,6 +53,10 @@
     background-color: #ff6f61; /* Change background on hover */
 }
 
+.btn-sm:hover i {
+    color:rgb(47, 47, 47);
+}
+
 /* Hover effect for edit and delete icons */
 .action-container a:hover,
 .action-container button:hover {
@@ -74,24 +78,32 @@
 
 /* Set width for Name, DateAdded, and Actions columns */
 th:nth-child(1), td:nth-child(1) { /* Name Column */
-    min-width: 160px;
+    min-width: 120px;
 }
 
-th:nth-child(3), td:nth-child(3) { /* Name Column */
+th:nth-child(2), td:nth-child(2) { /* Descrption Column */
+    min-width: 170px;
+}
+
+th:nth-child(3), td:nth-child(3) { /* Price Column */
+    min-width: 110px;
+}
+
+th:nth-child(8), td:nth-child(8) { /* Stock Status Column */
+    min-width: 155px;
+}
+
+th:nth-child(10), td:nth-child(10) { /* Date Added Column */
     min-width: 140px;
 }
 
-th:nth-child(6), td:nth-child(6) { /* Date Added Column */
-    min-width: 150px;
-}
-
-th:nth-child(7), td:nth-child(7) { /* Actions Column */
+th:nth-child(11), td:nth-child(11) { /* Actions Column */
     min-width: 150px;
 }
 
 /* Center-align the headers for Price, Stock Quantity, Category, Date Added, and Actions columns */
-th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7),
-td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10), th:nth-child(11),
+td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10), td:nth-child(11) {
     text-align: center;
 }
 

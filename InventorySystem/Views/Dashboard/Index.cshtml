@@ -76,7 +76,7 @@
                 labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.Name))),
                 datasets: [{
                     label: 'Top Products by Quantity',
-                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.StockQuantity))),
+                    data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.TopProductsByQuantity.Select(p => p.CurrentStock))),
                     backgroundColor: ['#caf0f8', '#588157', '#fb6f92', '#43291f', '#ffd6ff'],
                     borderColor: '#14213d',
                     borderWidth: 1

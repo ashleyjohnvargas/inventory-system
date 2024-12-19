@@ -71,16 +71,46 @@ namespace InventorySystem.Controllers
 
         // POST: AddProduct
         //[ValidateAntiForgeryToken]
+        [HttpPost]
         public IActionResult AddProduct(Product product)
         {
             if (ModelState.IsValid)
             {
-                _context.Products.Add(product);
-                _context.SaveChanges();
-                return RedirectToAction("ProductsPage");
+                // Calculate StockStatus based on CurrentStock and OriginalStock
+                if (product.CurrentStock == 0)
+                {
+                    product.StockStatus = "Out-of-Stock";
+                }
+                else if (product.CurrentStock < (0.1 * product.OriginalStock))
+                {
+                    product.StockStatus = "Low Stock";
+                }
+                else
+                {
+                    product.StockStatus = "In Stock";
+                }
+
+                try
+                {
+                    // Add product to the database
+                    _context.Products.Add(product);
+                    _context.SaveChanges();
+
+                    // Redirect to the products page with success notification
+                    return RedirectToAction("ProductsPage", new { page = 1 });
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and display an error message to the user
+                    _logger.LogError(ex, "Error occurred while adding a product.");
+                    ModelState.AddModelError(string.Empty, "An error occurred while saving the product. Please try again.");
+                }
             }
-            return View("ProductsPage", _context.Products.ToList());
+
+            // If we got this far, something failed, redisplay the form
+            return View("AddProductPage", product);
         }
+
 
         // GET: EditProduct
         public IActionResult EditProductPage(int id)
@@ -99,11 +129,38 @@ namespace InventorySystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Products.Update(product);
-                _context.SaveChanges();
-                return RedirectToAction("ProductsPage");
+                // Calculate StockStatus based on CurrentStock and OriginalStock
+                if (product.CurrentStock == 0)
+                {
+                    product.StockStatus = "Out-of-Stock";
+                }
+                else if (product.CurrentStock < (0.1 * product.OriginalStock))
+                {
+                    product.StockStatus = "Low Stock";
+                }
+                else
+                {
+                    product.StockStatus = "In Stock";
+                }
+
+                try
+                {
+                    // Add product to the database
+                    _context.Products.Update(product);
+                    _context.SaveChanges();
+
+                    // Redirect to the products page with success notification
+                    return RedirectToAction("ProductsPage", new { page = 1 });
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and display an error message to the user
+                    _logger.LogError(ex, "Error occurred while adding a product.");
+                    ModelState.AddModelError(string.Empty, "An error occurred while saving the product. Please try again.");
+                }
             }
-            return View(product);
+            // If we got this far, something failed, redisplay the form
+            return View("EditProductPage", product);
         }
 
         // POST: DeleteProduct
@@ -114,14 +171,32 @@ namespace InventorySystem.Controllers
             if (product != null)
             {
                 product.IsDeleted = true; // Mark the product as deleted
-                _context.Products.Update(product);
-                _context.SaveChanges();
+                product.IsBeingSold = false; // Mark the product as no longer being sold
+                product.StockStatus = "Discontinued"; // Update stock status to Discontinued
 
-                // Set a success message using TempData
-                TempData["SuccessMessage"] = "Product deleted successfully.";
+                try
+                {
+                    _context.Products.Update(product);
+                    _context.SaveChanges();
+
+                    // Set a success message using TempData
+                    TempData["SuccessMessage"] = "Product deleted successfully.";
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and set an error message using TempData
+                    _logger.LogError(ex, "Error occurred while deleting the product.");
+                    TempData["ErrorMessage"] = "An error occurred while deleting the product. Please try again.";
+                }
             }
+            else
+            {
+                TempData["ErrorMessage"] = "Product not found.";
+            }
+
             return RedirectToAction("ProductsPage");
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
