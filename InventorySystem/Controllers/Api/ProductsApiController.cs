@@ -35,7 +35,7 @@ namespace InventorySystem.Controllers.Api
 
 
         // Route: api/ProductsApi/EditProductFromEcommerce
-        [HttpPut("EditProductFromEcommerce")]
+        [HttpPost("EditProductFromEcommerce")]
         public IActionResult EditProductFromEcommerce([FromBody] Product product)
         {
             if (!ModelState.IsValid)
