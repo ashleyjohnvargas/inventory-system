@@ -9,5 +9,6 @@ namespace InventorySystem.Models
         public required DbSet<Product> Products { get; set; }
         public required DbSet<User> Users { get; set; }
         public required DbSet<UserProfile> UserProfiles { get; set;}
+        public DbSet<ProductImage> ProductImages { get; set;}
     }
 }

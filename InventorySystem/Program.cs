@@ -1,7 +1,15 @@
 using InventorySystem.Models;
 using Microsoft.EntityFrameworkCore;
+using InventorySystem.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Inventory service
+builder.Services.AddHttpClient<EcommerceService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5095/"); // Replace with Inventory System URL
+});
+
 
 // Add services to the container.
 // AddControllersWithViews() is added as a service because controllers in this system return Views

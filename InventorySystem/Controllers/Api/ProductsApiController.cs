@@ -19,6 +19,8 @@ namespace InventorySystem.Controllers.Api
         // included in the routing. Meaning, the name of the action will be put in the action syntax above. But you can remove that
         // just like this: [Route("api/[controller]")]. But since there's no action, you'll need to include this: [HttpGet("GetAllProducts")]
         // above this action name below:
+        
+        // Route: api/ProductsApi/GetAllProducts
         public IActionResult GetAllProducts()
         {
             var products = _context.Products
@@ -26,5 +28,37 @@ namespace InventorySystem.Controllers.Api
                                     .ToList();
             return Ok(products);
         }
+
+
+
+        // Route: api/ProductsApi/EditProductFromEcommerce
+        public IActionResult EditProductFromEcommerce([FromBody] Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid product data.");
+            }
+
+            // Find the product in the InventorySystem database
+            var existingProduct = _context.Products.FirstOrDefault(p => p.Id == product.Id);
+
+            if (existingProduct == null)
+            {
+                return NotFound($"Product with ID {product.Id} not found.");
+            }
+
+            // Update the product's details
+            existingProduct.Name = product.Name;
+            existingProduct.Description = product.Description;
+            existingProduct.Price = product.Price;
+            existingProduct.Color = product.Color;
+            existingProduct.Category = product.Category;
+
+            // Save changes to the database
+            _context.SaveChanges();
+
+            return Ok(new { Message = "Product updated successfully in InventorySystem." });
+        }
+
     }
 }

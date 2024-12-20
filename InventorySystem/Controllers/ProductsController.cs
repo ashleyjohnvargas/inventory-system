@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
+using InventorySystem.Services;
 
 namespace InventorySystem.Controllers
 {
@@ -30,11 +31,13 @@ namespace InventorySystem.Controllers
     {
         private readonly ILogger<ProductsController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly EcommerceService _ecommerceService;
 
-        public ProductsController(ILogger<ProductsController> logger, ApplicationDbContext context)
+        public ProductsController(ILogger<ProductsController> logger, ApplicationDbContext context, EcommerceService ecommerceService)
         {
             _logger = logger;
             _context = context;
+            _ecommerceService = ecommerceService;
         }
 
         // MVC Route: ProductsPage
@@ -76,6 +79,7 @@ namespace InventorySystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 // Calculate StockStatus based on CurrentStock and OriginalStock
                 if (product.CurrentStock == 0)
                 {
@@ -124,8 +128,8 @@ namespace InventorySystem.Controllers
         }
 
         // POST: AddProduct
-        [ValidateAntiForgeryToken]
-        public IActionResult EditProduct(Product product)
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(Product product)
         {
             if (ModelState.IsValid)
             {
@@ -147,9 +151,14 @@ namespace InventorySystem.Controllers
                 {
                     // Add product to the database
                     _context.Products.Update(product);
-                    _context.SaveChanges();
+                    // Save the changes to the database
+                    await _context.SaveChangesAsync();
+
+                    // Update the product details in the Ecommerce System
+                    await _ecommerceService.UpdateProductInEcommerceSystem(product);
 
                     // Redirect to the products page with success notification
+                    TempData["SuccessMessage"] = "Product updated successfully.";
                     return RedirectToAction("ProductsPage", new { page = 1 });
                 }
                 catch (Exception ex)
@@ -160,6 +169,7 @@ namespace InventorySystem.Controllers
                 }
             }
             // If we got this far, something failed, redisplay the form
+            Console.WriteLine("Error editing product!");
             return View("EditProductPage", product);
         }
 
