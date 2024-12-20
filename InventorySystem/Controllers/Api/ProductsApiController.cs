@@ -23,9 +23,11 @@ namespace InventorySystem.Controllers.Api
         // Route: api/ProductsApi/GetAllProducts
         public IActionResult GetAllProducts()
         {
-            var products = _context.Products
-                                    .Where(p => !p.IsDeleted)
-                                    .ToList();
+            // var products = _context.Products
+            //                         .Where(p => !p.IsDeleted)
+            //                         .ToList();
+            // Meaning, all the products will be passed to the Ecommerce even though they are soft deleted in the Inventory
+            var products = _context.Products.ToList();
             return Ok(products);
         }
 
