@@ -112,6 +112,12 @@ namespace InventorySystem.Controllers
             }
 
             // If we got this far, something failed, redisplay the form
+            Console.WriteLine("Error adding product!");
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
+
             return View("AddProductPage", product);
         }
 
@@ -156,6 +162,8 @@ namespace InventorySystem.Controllers
 
                     // Update the product details in the Ecommerce System
                     await _ecommerceService.UpdateProductInEcommerceSystem(product);
+
+                    Console.WriteLine(product.Id);
 
                     // Redirect to the products page with success notification
                     TempData["SuccessMessage"] = "Product updated successfully.";

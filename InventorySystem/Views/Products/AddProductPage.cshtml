@@ -18,53 +18,61 @@
     <div class="container d-flex justify-content-center" style="margin-bottom: 80px;">
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
             <div class="card-body">
-                <form asp-action="AddProduct" method="post">
+                <form asp-action="AddProduct" method="post" enctype="multipart/form-data">
                     <!-- Product Name -->
                     <div class="form-group mb-4">
                         <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Name</label>
-                        <input type="text" class="form-control form-control-lg" id="Name" name="Name" placeholder="e.g., Wireless Mouse" required>
+                        <input type="text" class="form-control form-control-lg" id="Name" name="Name"  asp-for="Name" placeholder="e.g., Wireless Mouse" required maxlength="255">
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                     <!-- Product Description -->
                     <div class="form-group mb-4">
                         <label for="Description" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Description</label>
-                        <textarea class="form-control form-control-lg" id="Description" name="Description" rows="3" placeholder="Enter a brief description..." required></textarea>
+                        <textarea class="form-control form-control-lg" id="Description" name="Description"  asp-for="Description" rows="3" placeholder="Enter a brief description..."></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
 
                     <!-- Base Price -->
                     <div class="form-group mb-4">
                         <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price</label>
-                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" name="Price" placeholder="e.g., 59.99" required>
+                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required>
+                        <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
 
                     <!-- Color -->
                     <div class="form-group mb-4">
                         <label for="Color" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Color</label>
-                        <input type="text" class="form-control form-control-lg" id="Color" name="Color" placeholder="e.g., Black">
+                        <input type="text" class="form-control form-control-lg" id="Color" name="Color" asp-for="Color" placeholder="e.g., Black" maxlength="100">
+                        <span asp-validation-for="Color" class="text-danger"></span>    
                     </div>
 
                     <!-- Category -->
                     <div class="form-group mb-4">
                         <label for="Category" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Category</label>
-                        <input type="text" class="form-control form-control-lg" id="Category" name="Category" placeholder="e.g., Electronics" required>
+                        <input type="text" class="form-control form-control-lg" id="Category" name="Category" asp-for="Category" placeholder="e.g., Electronics" maxlength="50">
+                        <span asp-validation-for="Category" class="text-danger"></span>
                     </div>
 
                     <!-- Original Stock -->
                     <div class="form-group mb-4">
                         <label for="OriginalStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Original Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" placeholder="e.g., 100" required>
+                        <input type="number" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" asp-for="OriginalStock" placeholder="e.g., 100" >
+                        <span asp-validation-for="OriginalStock" class="text-danger"></span>
                     </div>
 
                     <!-- Current Stock -->
                     <div class="form-group mb-4">
                         <label for="CurrentStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Current Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" placeholder="e.g., 50" required>
+                        <input type="number" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" asp-for="CurrentStock" placeholder="e.g., 50" >
+                        <span asp-validation-for="CurrentStock" class="text-danger"></span>
                     </div>
 
                     <!-- Date Added -->
                     <div class="form-group mb-4">
                         <label for="DateAdded" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Date Added</label>
-                        <input type="text" id="DateAdded" class="form-control form-control-lg" name="DateAdded" placeholder="Select date" required>
+                        <input type="text" id="DateAdded" class="form-control form-control-lg" name="DateAdded" asp-for="DateAdded" placeholder="Select date" required>
+                        <span asp-validation-for="DateAdded" class="text-danger"></span>
                     </div>
 
                     <!-- Submit Button -->

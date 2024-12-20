@@ -41,6 +41,6 @@ namespace InventorySystem.Models
         public DateTime DateAdded { get; set; } = DateTime.Now; // Defaults to current date and time
 
         // Navigation property for related ProductImages
-        public virtual ICollection<ProductImage> Images { get; set; }
+        // public virtual ICollection<ProductImage> Images { get; set; }
     }
 }
