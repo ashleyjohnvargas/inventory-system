@@ -4,7 +4,7 @@ using InventorySystem.Models;
 
 namespace InventorySystem.Controllers.Api 
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController] // Specifies that this is an API controller
     public class ProductsApiController : ControllerBase
     {
@@ -21,6 +21,7 @@ namespace InventorySystem.Controllers.Api
         // above this action name below:
         
         // Route: api/ProductsApi/GetAllProducts
+        [HttpGet("GetAllProducts")]
         public IActionResult GetAllProducts()
         {
             // var products = _context.Products
@@ -34,6 +35,7 @@ namespace InventorySystem.Controllers.Api
 
 
         // Route: api/ProductsApi/EditProductFromEcommerce
+        [HttpPut("EditProductFromEcommerce")]
         public IActionResult EditProductFromEcommerce([FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -60,6 +62,29 @@ namespace InventorySystem.Controllers.Api
             _context.SaveChanges();
 
             return Ok(new { Message = "Product updated successfully in InventorySystem." });
+        }
+
+
+        // Route: api/ProductsApi/SetProductAsNotBeingSold/id
+        [HttpPut("SetProductAsNotBeingSold/{id}")]
+        public IActionResult SetProductAsNotBeingSold(int id)
+        {
+            // Find the product in the InventorySystem database
+            var existingProduct = _context.Products.FirstOrDefault(p => p.Id == id);
+
+            if (existingProduct == null)
+            {
+                return NotFound($"Product with ID {id} not found.");
+            }
+
+            // Set the product as not being sold
+            existingProduct.IsBeingSold = false;
+
+            // Save changes to the database
+            _context.SaveChanges();
+            Console.WriteLine("Product set as not being sold in InventorySystem.");
+
+            return Ok(new { Message = "Product set as not being sold in InventorySystem." });
         }
 
     }
