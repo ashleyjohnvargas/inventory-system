@@ -122,9 +122,16 @@ main {
 }
 
 footer {
-  background-color: #da627d;
-  color: white;
-  text-align: center;
-  padding: 1em 0;
-  flex-grow: 2;
+    background-color: #da627d;
+    color: white;
+    text-align: center;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 1em 0;
+    flex-grow: 2;
+    height: 90px; /* Adjust height as needed */
 }
+    footer p {
+        margin: 0; /* Remove default margin for proper centering */
+    }

@@ -24,8 +24,8 @@ namespace InventorySystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult LoginPage(string email, string password)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
-            if (user != null)
+            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))  // Compare the entered password with the hashed password
             {
                 HttpContext.Session.SetString("UserId", user.Id.ToString());
                 HttpContext.Session.SetString("UserFullName", user.FullName);

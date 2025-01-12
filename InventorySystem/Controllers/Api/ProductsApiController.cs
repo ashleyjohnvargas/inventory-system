@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 
-namespace InventorySystem.Controllers.Api 
+namespace InventorySystem.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController] // Specifies that this is an API controller
@@ -19,7 +19,7 @@ namespace InventorySystem.Controllers.Api
         // included in the routing. Meaning, the name of the action will be put in the action syntax above. But you can remove that
         // just like this: [Route("api/[controller]")]. But since there's no action, you'll need to include this: [HttpGet("GetAllProducts")]
         // above this action name below:
-        
+
         // Route: api/ProductsApi/GetAllProducts
         [HttpGet("GetAllProducts")]
         public IActionResult GetAllProducts()
@@ -28,7 +28,9 @@ namespace InventorySystem.Controllers.Api
             //                         .Where(p => !p.IsDeleted)
             //                         .ToList();
             // Meaning, all the products will be passed to the Ecommerce even though they are soft deleted in the Inventory
-            var products = _context.Products.ToList();
+            var products = _context.Products
+                                    .Where(p => p.StockStatus != "Out-of-Stock")
+                                    .ToList();
             return Ok(products);
         }
 

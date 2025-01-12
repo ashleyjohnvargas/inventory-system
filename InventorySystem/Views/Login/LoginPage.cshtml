@@ -13,14 +13,36 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" asp-append-version="true">
+
 
     <!-- Include CSS files -->
     <link rel="stylesheet" href="~/css/loginpage.css" asp-append-version="true" />
+    <style>
+        /* Change icon color */
+        .toggle-password i {
+            color: #533747; /* Change to any color you prefer */
+        }
+
+        /* Optionally, change the size of the icon */
+        .toggle-password i {
+            font-size: 20px; /* Adjust the size if necessary */
+        }
+
+        /* Optional: Change color on hover */
+        .toggle-password:hover i {
+            color: #ff5722; /* Color when hovering over the icon */
+        }
+    </style>
 </head>
 
 <body>
     <div class="login-container">
         <div class="login-box">
+            <h1>Gizmode Inventory</h1>
             <h2>Login</h2>
 
             @if (ViewBag.ErrorMessage != null)
@@ -33,14 +55,35 @@
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" required />
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="position: relative;">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required />
+                    <span class="toggle-password" onclick="togglePasswordVisibility('password', this)"
+                          title="Show/Hide Password"
+                          style="position: absolute; top: 38px; right: 15px; margin-right: 10px; cursor: pointer;">
+                        <i class="bx bx-hide"></i>
+                    </span>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
     </div>
+    <script>
+        // Show/Hide Password
+        function togglePasswordVisibility(fieldId, toggleIcon) {
+            const passwordField = document.getElementById(fieldId);
+            const icon = toggleIcon.querySelector("i");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("bx-hide");
+                icon.classList.add("bx-show");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("bx-show");
+                icon.classList.add("bx-hide");
+            }
+        }
+    </script>
 
     <!-- Optional JavaScript -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -15,16 +15,16 @@
     <h1 class="mb-0 fw-bold" style="color: #343a40; font-size: 28px; margin:0;">Manage Products</h1>
 </div>
 
-<!-- Success Message Alert -->
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @TempData["SuccessMessage"]
-        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-}
+@* <!-- Success Message Alert --> *@
+@* @if (TempData["SuccessMessage"] != null) *@
+@* { *@
+@*     <div class="alert alert-success alert-dismissible fade show" role="alert"> *@
+@*         @TempData["SuccessMessage"] *@
+@*         <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> *@
+@*             <span aria-hidden="true">&times;</span> *@
+@*         </button> *@
+@*     </div> *@
+@* } *@
 
 <div class="d-flex flex-row justify-content-end mb-3" style="width: 1076px; margin-left: 162px; padding-left: 60px;">
     <a asp-action="AddProductPage" class="btn btn-success"><i class="fa-solid fa-plus-circle"></i> Add Product</a>

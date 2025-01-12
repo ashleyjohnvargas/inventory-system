@@ -1,4 +1,4 @@
-    @model InventorySystem.Models.UserProfile
+    @model InventorySystem.Models.Profile
 
     @{
         ViewData["Title"] = "My Profile";
@@ -116,6 +116,24 @@
         </style>
     </head>
     <body>
+    @{
+        var successMessage = TempData["SuccessMessage"];
+        var errorMessage = TempData["ErrorMessage"];
+    }
+    @if (ViewData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger mt-3 text-center">
+            @ViewData["ErrorMessage"]
+        </div>
+    }
+
+    @if (ViewData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success mt-3 text-center">
+            @ViewData["SuccessMessage"]
+        </div>
+    }
+
         <!-- Page Header with Go Back Icon -->
         <div class="page-header">
             <a asp-controller="Dashboard" asp-action="Index" class="text-decoration-none" title="Go Back">

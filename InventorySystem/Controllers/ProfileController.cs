@@ -19,6 +19,7 @@ public class ProfileController : Controller
         if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
         {
             // If the session doesn't contain a valid UserId, redirect to login page
+            //TempData["ErrorMessage"] = "User profile not found.";
             return RedirectToAction("LoginPage", "Login");
         }
 
@@ -33,7 +34,7 @@ public class ProfileController : Controller
         if (profile == null)
         {
             // Create a default profile for new users
-            profile = new UserProfile
+            profile = new Profile
             {
                 FullName = "",
                 Email = "",
@@ -61,7 +62,7 @@ public class ProfileController : Controller
 
     // Update profile
     [HttpPost]
-    public IActionResult UpdateProfile(UserProfile model)
+    public IActionResult UpdateProfile(Profile model)
     {
         if (!ModelState.IsValid)
         {
@@ -82,14 +83,18 @@ public class ProfileController : Controller
         if (profile != null && user != null)
         {
             // Update profile information
-            profile.FullName = model.FullName;
+            profile.FullName = user.FullName;
             profile.PhoneNumber = model.PhoneNumber;
             profile.Address = model.Address;
             profile.Email = model.Email;
 
             // Update email if changed
-            user.FullName = model.FullName;
+            //user.FullName = model.FullName;
             user.Email = model.Email;
+            // Update session with the new email
+            HttpContext.Session.SetString("UserEmail", user.Email);
+
+            //HttpContext.Session.SetString("UserFullName", user.FullName);
 
             _context.SaveChanges();
             TempData["SuccessMessage"] = "Profile updated successfully!";
@@ -122,8 +127,14 @@ public class ProfileController : Controller
             return RedirectToAction("ChangePasswordPage");
         }
 
-        // Check if the current password matches the user's password (this is without hashing)
-        if (user.Password != currentPassword)
+        //// Check if the current password matches the user's password (this is without hashing)
+        //if (user.Password != currentPassword)
+        //{
+        //    TempData["ErrorMessage"] = "Current password is incorrect.";
+        //    return RedirectToAction("ChangePasswordPage");
+        //}
+        // Check if the current password matches the hashed password (using BCrypt)
+        if (!BCrypt.Net.BCrypt.Verify(currentPassword, user.Password))  // Compare hashed password
         {
             TempData["ErrorMessage"] = "Current password is incorrect.";
             return RedirectToAction("ChangePasswordPage");
@@ -136,8 +147,9 @@ public class ProfileController : Controller
             return RedirectToAction("ChangePasswordPage");
         }
 
-        // Update the password without hashing it in the Users table
-        user.Password = newPassword;
+        // Hash the new password before saving it to the database
+        user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);  // Hash the new password
+
 
         _context.SaveChanges();
 

@@ -14,29 +14,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (for the arrow icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Boxicons (for the password toggle icons) -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+
+    
+    
     <style>
         /* Additional styling for the Welcome message */
         .welcome-message {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 18px;
-            color: #ffffff;
-            font-weight: 500;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 18px;
+        color: #ffffff;
+        font-weight: 500;
         }
 
         .custom-icon {
-            color:#ffb703;
+        color:#ffb703;
         }
 
         .navbar-nav li {
-            transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
         }
 
         .navbar-nav li:hover {
-            text-decoration: none;
-            color:#ffb703;
-            transform: translateX(5px);
+        text-decoration: none;
+        color:#ffb703;
+        transform: translateX(5px);
         }
     </style>
 </head>
@@ -45,11 +54,13 @@
     <div class="parent-container">
         <header>
             <nav class="navbar">
-                <div class="navbar-brand">
+                <div class="navbar-brand" >
+                    <a asp-controller="Dashboard" asp-action="Index" style="font-weight: bold; margin-right:16px">
                     <img style="width:80px; height: 70px;" src="~/images/fast-delivery.png">
-                    <a href="#" style="font-weight: bold;">StockXZ</a>
+                    StockXZ</a>
                 </div>
-                <ul class="navbar-nav">
+
+                <ul class="navbar-nav"> 
                     <li>
                         <i class="fa-solid fa-house custom-icon"></i>
                         <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
@@ -62,16 +73,23 @@
                         <i class="fa-solid fa-user custom-icon"></i>
                         <a style="margin-left:1px;" asp-controller="Profile" asp-action="ProfilePage">Profile</a>
                     </li>
+                    <li>
+                        <i class="fa-solid fa-users custom-icon"></i>
+                        <a style="margin-left:1px;" asp-controller="Users" asp-action="Users">Users</a>
+                    </li>
+
                     <div>
-                        <!-- User session check -->
-                        @if (Context.Session.GetString("UserId") != null)
-                        {
-                            <li class="nav-item">
-                                <i class="fa-solid fa-right-from-bracket custom-icon"></i>
-                                <a asp-controller="Login" asp-action="Logout">Logout</a>
-                            </li>
-                        }
-                    </div>              
+                    <!-- User session check -->
+                    @if (Context.Session.GetString("UserId") != null)
+                    {
+                        <li class="nav-item">
+                            <i class="fa-solid fa-right-from-bracket custom-icon"></i>
+                            <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Logout</a>
+                            @* <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a> *@
+
+                        </li>
+                    }
+                    </div>
                 </ul>
             </nav>
         </header>
@@ -85,17 +103,54 @@
         }
 
         <main>
+            <br>
+            @{
+                var successMessage = TempData["SuccessMessage"];
+                var errorMessage = TempData["ErrorMessage"];
+            }
+
+            @if (successMessage != null)
+            {
+            <div class="alert alert-success">
+                    @successMessage
+            </div>
+            }
+
+            @if (errorMessage != null)
+            {
+            <div class="alert alert-danger">
+                    @errorMessage
+            </div>
+            }
+
             @RenderBody()
         </main>
-    </div>
+     </div>
 
     <footer>
-        <p>© 2024 Inventory Management System</p>
+        <p>© 2025 Inventory Management System</p>
     </footer>
+
+  
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function confirmLogout() {
+        return confirm('Are you sure you want to log out?'); // Native confirm dialog
+    }
+
+            // Logout Confirmation
+    // function confirmLogout(event) {
+    //     const confirmation = confirm("Are you sure you want to log out?");
+    //     if (!confirmation) {
+    //         Prevent the default action if the user cancels
+    //         event.preventDefault();
+    //     }
+    //     return confirmation;
+    // }
+    </script>
 </body>
 
 </html>

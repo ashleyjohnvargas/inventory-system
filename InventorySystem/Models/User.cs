@@ -19,5 +19,10 @@ namespace InventorySystem.Models
         [Required]
         [StringLength(255)]
         public required string Password { get; set; } // Store hashed passwords
+
+        public bool IsActive { get; set; } = true;
+        //public string? Status { get; set; } // Use this field for Active/Inactive
+
+
     }
 }

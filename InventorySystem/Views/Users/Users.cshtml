@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@model List<UserViewModel>
+
+@* //@Html.DisplayFor(model => model.IsActive ? "Active" : "Inactive") *@
+
+<div class="container mt-5">
+    <div class="mb-4 d-flex justify-content-between align-items-center">
+        <h1 class="mb-4">
+            <span>Users</span>
+        </h1>
+        <a asp-action="AddUser" title="Add" style="text-decoration: none; background-color:  #da627d; color: white; padding: 10px 20px; border-radius: 10px;">Add User</a>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Full Name</th>
+                <th>Email Address</th>
+                <th>Status</th> <!--Active users? only-->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int index = 1;
+                foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@user.FullName</td>
+                        <td>@user.Email</td>
+                        <td>
+                            @(user.IsActive ? "Active" : "Inactive")
+                        </td>
+                        <td class="action-icons">
+                            <a asp-action="EditUser" asp-route-id="@user.Id" title="Edit" style="color:#547AA5;font-size: 20px;"><i class="fas fa-edit edit"></i></a>
+                            <!-- Form for deleting the unit -->
+                            <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" style="display:inline;">
+                                <button type="submit" title="Delete" style="color:#C04A4A; background: none; border: none; padding: 0; width: fit-content; height: fit-content;">
+                                    <i class="fas fa-trash delete" style="font-size: 20px;"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    index++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" style="text-align:center;">No users found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
