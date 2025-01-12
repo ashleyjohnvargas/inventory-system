@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7uGbe8sqIk+gbl5FcPNwFQAAAAACAAAAAAAQZgAAAAEAACAAAABjYRPfqtQn6nZHuRLHL9PKehUJQtliBYewxZEGcXZMBQAAAAAOgAAAAAIAACAAAADTAAXnjnv2ANflyI1vCaH8hd27wMaCuNRORRmPhvdT34AAAACVxyrSfZlIS9MIzbhML67NvmMku4v9lq6Gk34JV/Xf9Je1DMCB0+4SZdLUK33vtOoOlhaRrB7flVF1U5+Tf7E1mSDaLgi9Yl/lj426fNekbkNqHC8mi8wgY0UaGsnj+XUzcKF76jDi1sB8RTFGoDOzNAqq2MyGyim2xOqWrb8oF0AAAAD48LOCVylK46CKJVFHKjhi8F1RhjEtsPUGezxjKNGGKByKj/ToI0JUNwI6BsbiIAmPkxS+vQd8Wj1x8C3lsIL8</EncryptedPassword>
+    <History>True|2025-01-09T11:30:34.1255120Z||;True|2025-01-08T23:11:48.9263805+08:00||;False|2025-01-08T23:05:50.1819004+08:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:gizmodeinventoryserver.database.windows.net,1433%3bInitial Catalog=InventoryDB%3bPersist Security Info=False%3bUser ID=ashleyjohnvargas%3bPassword=4774.R81m%24%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

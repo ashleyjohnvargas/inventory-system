@@ -1,0 +1,132 @@
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #003049 0%, #fdf0d5 50%, #c1121f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+/* Styling for the login container */
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Styling for the login box */
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    border: 2px solid #ccc;  /* Softer border color */
+}
+
+/* Heading style */
+h2 {
+    color: #003049;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #003049;
+    font-size: 14px;
+}
+
+/* Input fields */
+.form-control {
+    width: 90%; /* Adjust width to make input shorter */
+    margin: 0 auto; /* Center the input */
+    padding: 12px; /* Adjust padding for better visual balance */
+    border: 2px solid #ccc;  /* Softer border color */
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #c1121f;
+    box-shadow: 0 0 8px rgba(193, 18, 31, 0.8);
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #f4a261;  /* Updated button color */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e76f51;  /* Updated hover color */
+    transform: scale(1.05);
+}
+
+/* Alert box for error messages */
+.alert-danger {
+    color: #fff;
+    background-color: #c1121f;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional smooth animations for focus on inputs */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(193, 18, 31, 0.6);
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px;
+        border-radius: 10px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    .form-control {
+        font-size: 14px;
+    }
+    .btn-primary {
+        font-size: 14px;
+    }
+}

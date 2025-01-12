@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7uGbe8sqIk+gbl5FcPNwFQAAAAACAAAAAAAQZgAAAAEAACAAAACECc5PoyKZ1aGVbNAo+8dyHDFdL/AINWkqI7vuYpDyNQAAAAAOgAAAAAIAACAAAADcR3Tft1d9c1E3fJ5DZxv5Nnr4/p846X3fmZdzPwShpoAAAAASjOE0xOugvOe0t9pzPwj4em8RDz947WYDTbKn4dCFssNZFarQdU5ZfgBDsJ93aKtzaRwIvvHJuEKPo9P47YNlQvI5zek7oU2iclvvpXlsaWa7F4eeI+CftxtA+N1POuTzuK9EknFX26aaNDKXz8gVuJUeLtw+zX5PE9l8VwQ/vEAAAABbxMq2xDq482ms7WPViOJPKMFPx1/GO+uVxaaqSR8X1AjoVlp1XFSNQn4D+NkOSCvN/RG3YfdZWwM8FlIf7k8P</EncryptedPassword>
+    <History>True|2025-01-08T12:35:16.6971576Z||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=inventorysystemdbserver.database.windows.net,1433%3bInitial Catalog=InventorySystem_db%3bUser ID=ashleyjohnvargas%3bPassword=4774.R81m%24</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

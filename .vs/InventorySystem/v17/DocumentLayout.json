@@ -1,12 +1,122 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|solutionrelative:inventorysystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|solutionrelative:inventorysystem\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|solutionrelative:inventorysystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystem\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D45EE094-9933-4512-B3A5-E7FD44E418AF}|InventorySystem\\InventorySystem.csproj|solutionrelative:inventorysystem\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84818C33-17B1-4D04-A798-D5A52BDFFE43}|InventorySystemTests\\InventorySystemTests.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystemtests\\dashboardcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84818C33-17B1-4D04-A798-D5A52BDFFE43}|InventorySystemTests\\InventorySystemTests.csproj|solutionrelative:inventorysystemtests\\dashboardcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84818C33-17B1-4D04-A798-D5A52BDFFE43}|InventorySystemTests\\InventorySystemTests.csproj|c:\\users\\angel\\onedrive\\documents\\ashley\\webdevprac\\inventorysystem\\inventorysystemtests\\inventorysystemtests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84818C33-17B1-4D04-A798-D5A52BDFFE43}|InventorySystemTests\\InventorySystemTests.csproj|solutionrelative:inventorysystemtests\\inventorysystemtests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InventorySystemTests.csproj",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystemTests\\InventorySystemTests.csproj",
+              "RelativeDocumentMoniker": "InventorySystemTests\\InventorySystemTests.csproj",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystemTests\\InventorySystemTests.csproj",
+              "RelativeToolTip": "InventorySystemTests\\InventorySystemTests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-23T05:42:30.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "InventorySystem\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Properties\\launchSettings.json",
+              "RelativeToolTip": "InventorySystem\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T11:19:11.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Program.cs",
+              "RelativeDocumentMoniker": "InventorySystem\\Program.cs",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Program.cs",
+              "RelativeToolTip": "InventorySystem\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T11:43:02.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\appsettings.json",
+              "RelativeDocumentMoniker": "InventorySystem\\appsettings.json",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\appsettings.json",
+              "RelativeToolTip": "InventorySystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAC6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T12:33:43.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DashboardControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystemTests\\DashboardControllerTests.cs",
+              "RelativeDocumentMoniker": "InventorySystemTests\\DashboardControllerTests.cs",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystemTests\\DashboardControllerTests.cs",
+              "RelativeToolTip": "InventorySystemTests\\DashboardControllerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T05:29:26.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "InventorySystem\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\Angel\\OneDrive\\Documents\\ashley\\WebDevPrac\\InventorySystem\\InventorySystem\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "InventorySystem\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAUwEsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T05:39:24.22Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

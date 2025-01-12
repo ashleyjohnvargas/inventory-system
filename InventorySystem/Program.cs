@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Inventory service
 builder.Services.AddHttpClient<EcommerceService>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5095/"); // Replace with Inventory System URL
+    client.BaseAddress = new Uri("https://gizmodeecommerce.azurewebsites.net/"); // Replace with Inventory System URL
 });
 
 
@@ -54,12 +54,23 @@ builder.Services.AddSession(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Login/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseDeveloperExceptionPage(); // Add this for development environment
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
+//// Configure the HTTP request pipeline.
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseExceptionHandler("/Login/Error");
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

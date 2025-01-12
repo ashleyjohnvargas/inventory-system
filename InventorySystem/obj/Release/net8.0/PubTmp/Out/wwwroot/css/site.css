@@ -1,0 +1,130 @@
+/* Global Styles */
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*, html {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #533747;
+  flex-grow:1;
+  height: 100%;
+}
+
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.custom-icon {
+  font-size: 24px;
+  color: #4caf50;
+  margin-right: 10px;
+  transition: color 0.3s ease; /* Optional: for hover effect */
+}
+
+.custom-icon:hover {
+  color: #ff5722; /* Change color on hover */
+}
+
+
+header {
+  background-color: #450920;
+  color: #ffffff;
+  padding: 0.5em 0;
+  width: 280px;
+}
+
+.link-img {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content:flex-start;
+}
+
+.navbar-brand a {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 620px; /*change this based on the width that can fit all the four nav links*/
+  flex-direction: column;
+  gap: 15px;
+  width: auto;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.navbar-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  /*font-weight: bold;*/
+  font-size: 18px;
+}
+
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
+
+.navbar-nav div {
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main {
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.container {
+  min-height: 100vh; 
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-right: 10px;
+  width: 1000px;
+  height: 100%;
+}
+
+footer {
+  background-color: #da627d;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  flex-grow: 2;
+}
