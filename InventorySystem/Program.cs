@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Inventory service
 builder.Services.AddHttpClient<EcommerceService>(client =>
 {
-    client.BaseAddress = new Uri("https://gizmodeecommerce.azurewebsites.net/"); // Replace with Inventory System URL
+    client.BaseAddress = new Uri("https://localhost:7231/"); // Replace with Inventory System URL
 });
 
 

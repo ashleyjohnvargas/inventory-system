@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\InventorySystem",
+    "\\InventorySystemTests",
     "\\InventorySystem\\wwwroot",
     "\\InventorySystem\\wwwroot\\css"
   ],
+  "SelectedNode": "\\InventorySystemTests\\InventorySystemTests.csproj",
   "PreviewInSolutionExplorer": false
 }
