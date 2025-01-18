@@ -29,7 +29,7 @@ namespace InventorySystem.Controllers.Api
             //                         .ToList();
             // Meaning, all the products will be passed to the Ecommerce even though they are soft deleted in the Inventory
             var products = _context.Products
-                                    .Where(p => p.StockStatus != "Out-of-Stock")
+                                    // .Where(p => p.StockStatus != "Out-of-Stock")
                                     .ToList();
             return Ok(products);
         }
@@ -105,8 +105,6 @@ namespace InventorySystem.Controllers.Api
                     if (product.CurrentStock < 0)
                     {
                         product.CurrentStock = 0;
-                        // Optionally, log or handle the error here
-                        // return BadRequest($"Product {product.Id} has insufficient stock.");
                     }
                     else
                     {
@@ -117,6 +115,9 @@ namespace InventorySystem.Controllers.Api
                             : product.CurrentStock < stockThreshold
                                 ? "Low Stock"
                                 : "In Stock";
+
+                        // Set IsBeingSold to false if CurrentStock is 0 or StockStatus is "Out-of-Stock"
+                        product.IsBeingSold = product.CurrentStock > 0 && product.StockStatus != "Out-of-Stock";
                     }
                 }
                 else
