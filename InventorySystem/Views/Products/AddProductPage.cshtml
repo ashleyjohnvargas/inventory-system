@@ -36,7 +36,7 @@
                     <!-- Base Price -->
                     <div class="form-group mb-4">
                         <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price</label>
-                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required>
+                        <input type="number" step="0.01" min="0" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
 
@@ -57,14 +57,14 @@
                     <!-- Original Stock -->
                     <div class="form-group mb-4">
                         <label for="OriginalStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Original Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" asp-for="OriginalStock" placeholder="e.g., 100" >
+                        <input type="number" min="0" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" asp-for="OriginalStock" placeholder="e.g., 100" >
                         <span asp-validation-for="OriginalStock" class="text-danger"></span>
                     </div>
 
                     <!-- Current Stock -->
                     <div class="form-group mb-4">
                         <label for="CurrentStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Current Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" asp-for="CurrentStock" placeholder="e.g., 50" >
+                        <input type="number" min="0" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" asp-for="CurrentStock" placeholder="e.g., 50" >
                         <span asp-validation-for="CurrentStock" class="text-danger"></span>
                     </div>
 

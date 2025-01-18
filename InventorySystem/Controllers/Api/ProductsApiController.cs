@@ -89,5 +89,45 @@ namespace InventorySystem.Controllers.Api
             return Ok(new { Message = "Product set as not being sold in InventorySystem." });
         }
 
+
+        // Route: api/ProductsApi/UpdateStock
+        [HttpPost("UpdateStock")]
+        public IActionResult UpdateStock([FromBody] List<ProductStockUpdateModel> stockUpdates)
+        {
+            foreach (var update in stockUpdates)
+            {
+                var product = _context.Products.FirstOrDefault(p => p.Id == update.ProductId);
+                if (product != null)
+                {
+                    product.CurrentStock -= update.Quantity;
+                    
+                    // Update StockStatus based on CurrentStock and OriginalStock
+                    if (product.CurrentStock < 0)
+                    {
+                        product.CurrentStock = 0;
+                        // Optionally, log or handle the error here
+                        // return BadRequest($"Product {product.Id} has insufficient stock.");
+                    }
+                    else
+                    {
+                        var stockThreshold = 0.1 * product.OriginalStock;
+                        
+                        product.StockStatus = product.CurrentStock == 0
+                            ? "Out-of-Stock"
+                            : product.CurrentStock < stockThreshold
+                                ? "Low Stock"
+                                : "In Stock";
+                    }
+                }
+                else
+                {
+                    return NotFound($"Product {update.ProductId} not found.");
+                }
+            }
+
+            _context.SaveChanges();
+            return Ok(new { Message = "Stock updated successfully." });
+        }
+
     }
 }
