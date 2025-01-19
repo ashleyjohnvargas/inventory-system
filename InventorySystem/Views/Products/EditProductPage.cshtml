@@ -71,11 +71,25 @@
                         <span asp-validation-for="CurrentStock" class="text-danger"></span>
                     </div>
 
+                    <!-- Is Being Sold -->
+                    <!-- Radio buttons for boolean values -->
+                    <div class="form-group mb-4">
+                        <label class="fw-semibold" style="font-size: 1.1rem; color: #555;">Sell this product in Ecommerce?</label>
+                        <div>
+                            <input type="radio" id="isActiveYes" name="IsBeingSold" value="true" asp-for="IsBeingSold">
+                            <label for="isActiveYes">Yes</label>
+                            <input type="radio" id="isActiveNo" name="IsBeingSold" value="false" asp-for="IsBeingSold">
+                            <label for="isActiveNo">No</label>
+                        </div>
+                        <span asp-validation-for="IsBeingSold" class="text-danger"></span>
+                    </div>
+
+
                     <!-- Hidden Stock Status-->
                     <input type="hidden" name="StockStatus" asp-for="StockStatus" />
 
                     <!-- Hidden Is Being Sold -->
-                    <input type="hidden" name="IsBeingSold" asp-for="IsBeingSold" />
+                    @* <input type="hidden" name="IsBeingSold" asp-for="IsBeingSold" /> *@
 
                     <!-- Hidden Is Deleted -->
                     <input type="hidden" name="IsDeleted" asp-for="IsDeleted" />
