@@ -2,8 +2,173 @@
 
 @{
     ViewData["Title"] = "Manage Products";
+    Layout = "_Layout";
 }
+<style>
+    /* Styling for the popup modal */
+    .popup-modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Background color */
+        padding-top: 60px;
+        text-align: center;
+    }
 
+    .popup-content {
+        background-color: #fff;
+        margin: 5% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        position: relative;
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        color: #000;
+        cursor: pointer;
+    }
+
+    /* Button style */
+    .view-description-btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        font-size: .9rem;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+        .view-description-btn:hover {
+            background-color: #0056b3;
+        }
+
+    .popup-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .popup-content p {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .column-number {
+        width: 1px; /* Adjust this value as needed */
+        text-align: center; /* Optional: align the number to the center */
+    }
+
+    th.column-number {
+        padding: 5px 10px; /* Reduce padding */
+        width: auto; /* Ensure it takes just enough space */
+    }
+
+    /* Search bar container styling */
+    .search-bar .input-group {
+        max-width: 500px;
+    }
+
+    /* Input field styling */
+    .search-bar input[type="text"] {
+        border-radius: 5px 0 0 5px;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+    }
+
+    /* Search button styling */
+    .search-bar .btn {
+        border-radius: 0 5px 5px 0;
+        font-size: 1rem;
+        color: white;
+        background-color: skyblue;
+        border: 1px solid lightblue;
+        transition: background-color 0.3s;
+    }
+
+        .search-bar .btn:hover {
+            background-color: #2c89d9;
+            border-color: mediumaquamarine;
+        }
+
+    /* Add Product button */
+    .btn-success {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+        .btn-success i {
+            margin-right: 5px;
+        }
+
+    /* Responsive adjustments */
+    /* media (max-width: 768px) { */
+    /*     .search-bar, .text-md-end */
+
+    /* { */
+    /*     text-align: center; */
+    /* } */
+
+    /* .btn-success { */
+    /*     width: 100%; */
+    /* } */
+
+    /* } */
+
+    /* Style for the header text and icon container */
+    th span {
+        display: flex;
+        align-items: center; /* Keep icon aligned with text */
+        justify-content: space-between; /* Space between text and icon */
+        margin-bottom: 4px; /* Space between header name and the dropdown */
+    }
+
+    /* Sort icon placement and styles */
+    th i {
+        font-size: 0.9em;
+        color: #aaa;
+        padding-left: 4px;
+        transition: color 0.2s ease;
+    }
+
+    /* Dropdown styling */
+    th select {
+        display: block; /* Ensure dropdown spans full width if needed */
+        margin-top: 4px; /* Space between the header text and dropdown */
+        padding: 4px 6px;
+        font-size: 0.9em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+    /* Hover effect for headers */
+    th:hover i {
+        color: #555; /* Darker color for sort icon on hover */
+    }
+
+    /* Active sorting icon colors */
+    .fas.fa-sort-up {
+        color: #2c89d9; /* Blue for ascending */
+    }
+
+    .fas.fa-sort-down {
+        color: #d9534f; /* Red for descending */
+    }
+
+
+  
+</style>
 <!-- Include CSS files -->
 <link rel="stylesheet" href="~/css/productspage.css" asp-append-version="true" />
 
@@ -15,6 +180,7 @@
     <h1 class="mb-0 fw-bold" style="color: #343a40; font-size: 28px; margin:0;">Manage Products</h1>
 </div>
 
+
 @* <!-- Success Message Alert --> *@
 @* @if (TempData["SuccessMessage"] != null) *@
 @* { *@
@@ -25,35 +191,80 @@
 @*         </button> *@
 @*     </div> *@
 @* } *@
+<div class="row align-items-center">
+    <!-- Search Bar on the Left -->
+    <div class="col-md-8 col-12 search-bar">
+        <div class="input-group" style="margin-left: 33px;">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Search product..."
+                   id="searchInput"
+                   aria-label="Search product">
+            <button class="btn btn-outline-secondary search-unit-button"
+                    onclick="searchProduct()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
 
-<div class="d-flex flex-row justify-content-end mb-3" style="width: 1076px; margin-left: 162px; padding-left: 60px;">
-    <a asp-action="AddProductPage" class="btn btn-success"><i class="fa-solid fa-plus-circle"></i> Add Product</a>
+    <!-- Add Product Button on the Right -->
+    <div class="col-md-4 col-12 text-md-end text-center mt-md-0 mt-3">
+        <a asp-action="AddProductPage" class="btn btn-success btn-lg" style="margin-right: 33px;">
+            <i class="fa-solid fa-plus-circle"></i> Add Product
+        </a>
+    </div>
 </div>
+
 
 <!-- Centered Table Container with Animation -->
 <div class="table-container">
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" id="productList" data-sort-column="" data-sort-order="">
         <thead class="table-dark">
             <tr>
-                <th>Name</th>
-                <th class="description-column">Description</th>
-                <th>Price</th>
-                <th>Color</th>
-                <th>Category</th>
-                <th>Original Stock</th>
-                <th>Current Stock</th>
-                <th>Stock Status</th>
-                <th>Is Being Sold</th>
-                <th>Date Added</th>
-                <th>Actions</th>
+                <th onclick="sortTable(0)">#</th>
+                <th onclick="sortTable(1)"><span>Name<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(2)"><span>Price<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(3)"><span>Color<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(4)">
+                    <span>Category<i class="fas fa-sort"></i></span>
+                        <select id="categoryFilter" onchange="filterCategory()">
+                            <option value="">All</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Cellphone">Cellphone</option>
+                            <option value="Tablet">Tablet</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="TV">TV</option>
+                            <option value="Headphone">Headphone</option>
+                            <option value="Speaker">Speaker</option>
+                        </select>
+                   
+                </th>
+                <th onclick="sortTable(5)"><span>Original Stock<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(6)"><span>Current Stock<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(7)">
+                        <span>Stock Status<i class="fas fa-sort"></i></span>
+                        <select id="statusFilter" onchange="filterStatus()">
+                            <option value="">All</option>
+                            <option value="In Stock">In Stock</option>
+                            <option value="Low Stock">Low Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>       
+                </th>
+                <th onclick="sortTable(8)"><span>Is Being Sold<i class="fas fa-sort"></i></span></th>
+                <th onclick="sortTable(9)"><span>Date Added<i class="fas fa-sort"></i></span></th>
+                <th >Actions</th>
             </tr>
         </thead>
         <tbody>
+            @{
+                int index = 1;  // Initialize the index before the loop
+            }
+
             @foreach (var product in Model.Products)
             {
-                <tr>
-                    <td>@product.Name</td>
-                    <td class="description-column">@product.Description</td>
+                <tr data-product-id="@product.Id" data-description="@product.Description">
+                    <td>@index</td>
+                    <td>@product.Name <button class="view-description-btn" onclick="showDescription(@product.Id)">View Description</button></td>
                     <td>@string.Format("{0:C}", product.Price)</td>
                     <td>@product.Color</td>
                     <td>@product.Category</td>
@@ -63,24 +274,33 @@
                     <td>@(product.IsBeingSold ? "Yes" : "No")</td>
                     <td>@product.DateAdded.ToString("yyyy-MM-dd")</td>
                     <td class="action-container">
-                         <!-- Edit Button with Pencil Icon -->
+                        <!-- Edit Button with Pencil Icon -->
                         <a asp-controller="Products" asp-action="EditProductPage" asp-route-id="@product.Id" class="btn btn-warning action-butt">
                             <i class="fa-solid fa-pencil-alt cust-icon"></i>
                         </a>
-                        
+
                         <!-- Delete Button with Trash Icon -->
-                        <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" class="d-inline" style="margin-left: 2px;">
+                        <form asp-action="DeleteProduct" asp-route-id="@product.Id" method="post" class="d-inline" style="margin-left: 2px;" onsubmit="return confirmDelete()">
                             <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="fa-solid fa-trash cust-icon"></i> 
+                                <i class="fa-solid fa-trash cust-icon"></i>
                             </button>
                         </form>
                     </td>
                 </tr>
+                index++;
             }
         </tbody>
     </table>
 </div>
 
+<!-- Popup Modal for Description -->
+<div id="description-popup" class="popup-modal">
+    <div class="popup-content">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <h2>Product Description</h2>
+        <p id="popup-description-text"></p>
+    </div>
+</div>
 <!-- Pagination Controls -->
 <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 50px;">
     @if (Model.CurrentPage > 1)
@@ -99,6 +319,120 @@
 
 @section Scripts {
     <script>
+        
+        // JavaScript function to show confirmation prompt
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this product? This action cannot be undone.");
+        }
+  
+        // Sorting function for the table
+        function sortTable(columnIndex) {
+            const table = document.getElementById("productList");
+            const rows = Array.from(table.rows).slice(1); // Get all rows except the header
+            let isAscending = table.getAttribute('data-sort-order') === 'asc'; // Check current sort order
+
+            // Sort rows based on the column index and current sort order
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].textContent.trim();
+                const cellB = rowB.cells[columnIndex].textContent.trim();
+
+                if (isNaN(cellA) || isNaN(cellB)) {
+                    // Compare alphabetically (for non-numeric columns)
+                    return (cellA > cellB) ? (isAscending ? 1 : -1) : (isAscending ? -1 : 1);
+                } else {
+                    // Compare numerically (for numeric columns)
+                    return (parseFloat(cellA) - parseFloat(cellB)) * (isAscending ? 1 : -1);
+                }
+            });
+
+            // Rebuild the table body with the sorted rows
+            table.tBodies[0].append(...rows);
+
+            // Toggle sort order for the next click
+            table.setAttribute('data-sort-order', isAscending ? 'desc' : 'asc');
+        }
+
+        // Filter products based on selected category
+        function filterCategory() {
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const rows = document.querySelectorAll("#productList tbody tr");
+
+            rows.forEach(row => {
+                const categoryCell = row.cells[4].textContent.trim();
+                if (categoryFilter === "" || categoryCell === categoryFilter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Filter products based on selected stock status
+        function filterStatus() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const rows = document.querySelectorAll("#productList tbody tr");
+
+            rows.forEach(row => {
+                const statusCell = row.cells[7].textContent.trim();
+                if (statusFilter === "" || statusCell === statusFilter) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Optional: Add functionality to show product descriptions (can be expanded)
+       // // function showDescription(productId) {
+        //     This function can be expanded to show a modal or additional description
+        //     alert('Show description for product ID: ' + productId);
+        // }
+
+
+
+
+         document.getElementById("searchInput").addEventListener("keyup", searchProduct);
+                function searchProduct() {
+            // Get the search input value
+            var searchValue = document.getElementById("searchInput").value.toLowerCase();
+
+            // Get all rows in the table (except the header row)
+            var rows = document.querySelectorAll("table tbody tr");
+
+            // Loop through each row
+            rows.forEach(function(row) {
+                // Get the product name from the current row (assuming it's in the second column)
+                var productName = row.cells[1].textContent.toLowerCase(); // Change 1 if the name is in a different column
+
+                // If the product name includes the search value, display the row, else hide it
+                if (productName.includes(searchValue)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+                // Function to show the product description in the popup
+        function showDescription(productId) {
+            // Get the product row based on the productId
+            var productRow = document.querySelector(`[data-product-id='${productId}']`);
+
+            // Retrieve the description from the data-description attribute
+            var description = productRow.getAttribute("data-description");
+
+            // Set the description text in the popup
+            document.getElementById('popup-description-text').innerText = description;
+
+            // Show the popup
+            document.getElementById('description-popup').style.display = 'block';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('description-popup').style.display = 'none';
+        }
+
         // Function to adjust the margin-bottom based on the table container's height
         function adjustTableMargin() {
             var tableContainer = document.querySelector('.table-container');
@@ -117,4 +451,24 @@
         // Adjust margin on window resize
         window.addEventListener('resize', adjustTableMargin);
     </script>
+
+    <script>
+        // Function to show the product description in the popup
+        function showDescription(productId) {
+            // Get the product description dynamically based on the productId
+            var description = document.querySelector(`[data-product-id='${productId}']`).getAttribute("data-description");
+
+            // Set the description text in the popup
+            document.getElementById('popup-description-text').innerText = description;
+
+            // Show the popup
+            document.getElementById('description-popup').style.display = 'block';
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('description-popup').style.display = 'none';
+        }
+    </script>
+   
 }

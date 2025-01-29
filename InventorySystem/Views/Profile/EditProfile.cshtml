@@ -1,4 +1,4 @@
-@model InventorySystem.Models.Profile
+@model InventorySystem.Models.UserProfile
 
 @{
     ViewData["Title"] = "Edit Profile";
@@ -6,7 +6,7 @@
 
 <!-- Include CSS files -->
 <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-
+<body> 
 <div class="fade-in">
     @{
         var successMessage = TempData["SuccessMessage"];
@@ -25,17 +25,18 @@
     <div class="container d-flex justify-content-center" style="margin-bottom: 80px;">
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
             <div class="card-body">
-                <form asp-action="UpdateProfile" method="post">
+                <form asp-action="UpdateProfile" method="post" id="updateProfile">
                     <!-- Full Name -->
                     <div class="form-group mb-4">
-                        <p style="font-size: 1.1rem; color: #555;"><strong>Full Name: </strong>@Context.Session.GetString("UserFullName")</p>
-                        <input type="hidden" name="FullName" />
+                        @* <p style="font-size: 1.1rem; color: #555;">Full Name: </p> <!-- </strong> Context.Session.GetString("UserFullName")-->                         <input type="text" name="FullName" /> *@
+                        <label for="FullName" class="fw-semibold" style="font-size: 1.1rem; color: #555;">FullName</label>
+                        <input type="text" class="form-control form-control-lg" id="FullName" name="FullName" value="@Model.FullName" >
                     </div>
 
                     <!-- Email -->
                     <div class="form-group mb-4">
                         <label for="Email" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Email</label>
-                        <input type="email" class="form-control form-control-lg" id="Email" name="Email" value="@Model.Email" required>
+                        <input type="email" class="form-control form-control-lg" id="Email" name="Email" value="@Model.Email" >
                     </div>
 
                     <!-- Phone Number -->
@@ -52,15 +53,17 @@
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
+                            <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" onclick="confirmSaveChanges()">
                             <i class="fa-solid fa-check-circle me-2"></i> Save Changes
+                            <!--Add Confirmation -->
                         </button>
                     </div>
 
                     <!-- Cancel Button -->
                     <div class="text-center mt-3">
-                        <a asp-action="ProfilePage" class="btn btn-secondary btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
-                            <i class="fa-solid fa-times-circle me-2"></i> Cancel
+                            <a asp-action="ProfilePage" class="btn btn-secondary btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" onclick="confirmCancel()">
+                            <i class="fa-solid fa-times-circle me-2"></i> Cancel  <!--Add Confirmation -->
+
                         </a>
                     </div>
                 </form>
@@ -68,6 +71,7 @@
         </div>
     </div>
 </div>
+</body>
 
 @if (ViewData["ErrorMessage"] != null)
 {
@@ -83,7 +87,30 @@
     </div>
 }
 
+<script>
+    // Function for saving changes confirmation
+    function confirmSaveChanges() {
+        const userConfirmed = confirm("Are you sure you want to save the changes?");
+        if (userConfirmed) {
+            // Submit the form or perform the save changes action
+            document.getElementById('updateProfile').submit();  // Replace with your actual form id
+            alert("Changes saved successfully!");
+        } else {
+            alert("Save changes canceled.");
+        }
+    }
 
+    // Function for cancel action confirmation
+    function confirmCancel() {
+        const userConfirmed = confirm("Are you sure you want to cancel?");
+        if (userConfirmed) {
+            window.location.href = "/Profile/ProfilePage";  // Redirect to ProfilePage or your cancel page
+            alert("Action canceled.");
+        } else {
+            alert("Cancel action aborted.");
+        }
+    }
+</script>
 <!-- Fade-In Animation Script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {

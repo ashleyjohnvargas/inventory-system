@@ -79,7 +79,7 @@ namespace InventorySystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 // Calculate StockStatus based on CurrentStock and OriginalStock
                 if (product.CurrentStock == 0)
                 {
@@ -143,14 +143,18 @@ namespace InventorySystem.Controllers
                 if (product.CurrentStock == 0)
                 {
                     product.StockStatus = "Out-of-Stock";
+                    product.IsBeingSold = false;
+
                 }
                 else if (product.CurrentStock < (0.1 * product.OriginalStock))
                 {
                     product.StockStatus = "Low Stock";
+                    product.IsBeingSold = true;
                 }
                 else
                 {
                     product.StockStatus = "In Stock";
+                    product.IsBeingSold = true;
                 }
 
                 try

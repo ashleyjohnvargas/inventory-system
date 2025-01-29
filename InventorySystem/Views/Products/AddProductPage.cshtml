@@ -2,9 +2,46 @@
 @Html.AntiForgeryToken()
 
 <!-- Include CSS files -->
-    <link rel="stylesheet" href="~/css/addproduct.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/addproduct.css" asp-append-version="true" />
+
+<style>
+    /* Initially, do not show invalid borders */
+    /* input:invalid, textarea:invalid { */
+    /*     border: 2px solid transparent; */
+    /* } */
+
+    /* input.is-valid, textarea:valid {  */
+    /*     border: 2px solid gray; */
+    /*  } */
+
+    /* Show error borders and warnings only after submit */
+    input.error, textarea.error {
+        border: 2px solid red;
+    }
+
+        input.error + span, textarea.error + span {
+            display: inline-block;
+            color: red;
+        }
+
+    /* Styling for error inputs */
+    input:invalid, select:invalid, textarea:invalid {
+        border-color: red ;
+    }
+
+        input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+            border-color: darkorange;
+        }
+
+    /* Styling for error message */
+    span.text-danger {
+        color: red;
+        font-size: 0.9rem;
+    }
 
 
+
+</style>
 <div class="fade-in">
     <!-- Page Header with Go Back Icon -->
     <div class="d-flex align-items-center mb-4" style="width: 1000px; margin: 30px 0 0 26px;">
@@ -18,25 +55,26 @@
     <div class="container d-flex justify-content-center" style="margin-bottom: 80px;">
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
             <div class="card-body">
-                <form asp-action="AddProduct" method="post" enctype="multipart/form-data">
+                <form asp-action="AddProduct" method="post"  novalidate>
                     <!-- Product Name -->
                     <div class="form-group mb-4">
-                        <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Name</label>
-                        <input type="text" class="form-control form-control-lg" id="Name" name="Name"  asp-for="Name" placeholder="e.g., Wireless Mouse" required maxlength="255">
+                        <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555; ">Product Name <span style="color:red"> *</span></label>
+                        <input type="text" class="form-control form-control-lg" id="Name" name="Name" asp-for="Name" placeholder="e.g., Wireless Mouse" required maxlength="255" style:"border-color: gray;">
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
                     <!-- Product Description -->
                     <div class="form-group mb-4">
                         <label for="Description" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Product Description</label>
-                        <textarea class="form-control form-control-lg" id="Description" name="Description"  asp-for="Description" rows="3" placeholder="Enter a brief description..."></textarea>
+                        <textarea class="form-control form-control-lg" id="Description" name="Description" asp-for="Description" rows="3" placeholder="Enter a brief description..."></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
 
                     <!-- Base Price -->
                     <div class="form-group mb-4">
-                        <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price</label>
-                        <input type="number" step="0.01" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required>
+                        <label for="Price" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Base Price  <span style="color:red"> *</span></label>
+                        @* <input type="number" step="0.01" min="0" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required> *@
+                        <input type="text" class="form-control form-control-lg" id="Price" name="Price" asp-for="Price" placeholder="e.g., 59.99" required>
                         <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
 
@@ -44,7 +82,7 @@
                     <div class="form-group mb-4">
                         <label for="Color" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Color</label>
                         <input type="text" class="form-control form-control-lg" id="Color" name="Color" asp-for="Color" placeholder="e.g., Black" maxlength="100">
-                        <span asp-validation-for="Color" class="text-danger"></span>    
+                        <span asp-validation-for="Color" class="text-danger"></span>
                     </div>
 
                     <!-- Category -->
@@ -56,28 +94,28 @@
 
                     <!-- Original Stock -->
                     <div class="form-group mb-4">
-                        <label for="OriginalStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Original Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" asp-for="OriginalStock" placeholder="e.g., 100" >
+                        <label for="OriginalStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Original Stock  <span style="color:red"> *</span></label>
+                        <input type="number" min="0" class="form-control form-control-lg" id="OriginalStock" name="OriginalStock" asp-for="OriginalStock" required placeholder="e.g., 100">
                         <span asp-validation-for="OriginalStock" class="text-danger"></span>
                     </div>
 
                     <!-- Current Stock -->
                     <div class="form-group mb-4">
-                        <label for="CurrentStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Current Stock</label>
-                        <input type="number" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" asp-for="CurrentStock" placeholder="e.g., 50" >
+                        <label for="CurrentStock" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Current Stock  <span style="color:red"> *</span></label>
+                        <input type="number" min="0" class="form-control form-control-lg" id="CurrentStock" name="CurrentStock" asp-for="CurrentStock" required placeholder="e.g., 50">
                         <span asp-validation-for="CurrentStock" class="text-danger"></span>
                     </div>
 
                     <!-- Date Added -->
                     <div class="form-group mb-4">
-                        <label for="DateAdded" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Date Added</label>
+                        <label for="DateAdded" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Date Added  <span style="color:red"> *</span></label>
                         <input type="text" id="DateAdded" class="form-control form-control-lg" name="DateAdded" asp-for="DateAdded" placeholder="Select date" required>
                         <span asp-validation-for="DateAdded" class="text-danger"></span>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
+                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" onclick="return confirmSubmit();">
                             <i class="fa-solid fa-check-circle me-2"></i> Add Product
                         </button>
                     </div>
@@ -87,13 +125,97 @@
     </div>
 </div>
 
+<script>
+    function confirmSubmit() {
+        // Display a confirmation dialog
+        var isConfirmed = confirm("Are you sure you want to add this product?");
 
+        // If the user clicks "Yes", submit the form
+        if (isConfirmed) {
+            return true;
+        } else {
+            // If the user clicks "No", do not submit the form
+            return false;
+        }
+    }
+</script>
 <!-- Include Flatpickr CSS and JS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+    <script>
+     $(document).ready(function () {
+         $("form").submit(function (e) {
+             let formIsValid = true;
+
+             // Loop through each required input field
+             $("input[required], select[required], textarea[required]").each(function () {
+                 // Check if the field is empty
+                 if (!this.value) {
+                     // Add error styling
+                     $(this).addClass("is-invalid");
+
+                     // Check if an error message already exists
+                     var validationMessage = $(this).next(".text-danger");
+                     if (validationMessage.length === 0) {
+                         $(this).after('<span class="text-danger">This field is required.</span>');
+                     }
+
+                     formIsValid = false;
+                 } else {
+                     // Remove error styling and message
+                     $(this).removeClass("is-invalid");
+                     $(this).next(".text-danger").remove();
+                 }
+             });
+
+             // Prevent form submission if any field is invalid
+             if (!formIsValid) {
+                 e.preventDefault();
+             }
+         });
+     });
+
+</script>
+
 <!-- Flatpickr Initialization -->
 <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector('form');
+        const inputs = document.querySelectorAll("input, textarea");
+
+        form.addEventListener("submit", function (e) {
+            let formIsValid = true;
+
+            inputs.forEach(input => {
+                // Check if input is invalid
+                if (!input.validity.valid) {
+                    input.classList.add("error"); // Add error class
+                    formIsValid = false;
+                } else {
+                    input.classList.remove("error"); // Remove error class if valid
+                }
+            });
+
+            // Prevent form submission if invalid
+            if (!formIsValid) {
+                e.preventDefault(); // Stop form submission
+            }
+        });
+
+        // Optional: Remove error class once the user starts typing
+        inputs.forEach(input => {
+            input.addEventListener("input", function () {
+                if (input.validity.valid) {
+                    input.classList.remove("error"); // Remove error on valid input
+                }
+            });
+        });
+    });
+
+
+
     flatpickr("#DateAdded", {
         dateFormat: "Y-m-d",
         defaultDate: new Date(),
@@ -112,4 +234,50 @@
             }, 100); // Delay to ensure smooth animation
         });
     });
+
+
+    // Format the input as the user types (add commas dynamically)
+    document.getElementById('Price').addEventListener('input', function (e) {
+        let value = e.target.value;
+
+        // Remove invalid characters (anything except digits and a single dot)
+        value = value.replace(/[^0-9.]/g, '');
+
+        // Check if the value contains a decimal point
+        const dotIndex = value.indexOf('.');
+        if (dotIndex !== -1) {
+            // Allow only one decimal point and keep the decimal part
+            const beforeDot = value.substring(0, dotIndex);
+            const afterDot = value.substring(dotIndex + 1).replace(/\./g, ''); // Remove extra dots
+            value = beforeDot + '.' + afterDot;
+        }
+
+        // Split into integer and decimal parts
+        const parts = value.split('.');
+        let integerPart = parts[0];
+        let decimalPart = parts[1] !== undefined ? '.' + parts[1].slice(0, 2) : ''; // Limit decimal places to 2
+
+        // Add commas to the integer part
+        integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+        // Combine integer and decimal parts and update the input field
+        e.target.value = integerPart + decimalPart;
+    });
+
+    // Sanitize input before form submission (remove commas)
+    document.querySelector('form').addEventListener('submit', function () {
+        let priceInput = document.getElementById('Price');
+        priceInput.value = priceInput.value.replace(/,/g, ''); // Remove commas before submitting
+    });
 </script>
+
+<!-- jQuery and jQuery Validate -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+
+<!-- jQuery Unobtrusive Validation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>

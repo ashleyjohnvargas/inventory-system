@@ -1,0 +1,240 @@
+﻿@{
+    Layout = null; // Disable the layout for this view
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" asp-append-version="true">
+
+
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="~/css/loginpage.css" asp-append-version="true" />
+    <style>
+        /* Change icon color */
+        .toggle-password i {
+            color: #533747; /* Change to any color you prefer */
+        }
+
+        /* Optionally, change the size of the icon */
+        .toggle-password i {
+            font-size: 20px; /* Adjust the size if necessary */
+        }
+
+        /* Optional: Change color on hover */
+        .toggle-password:hover i {
+            color: #ff5722; /* Color when hovering over the icon */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Gizmode Inventory</h1>
+            <h2>Login</h2>
+
+            <!-- Display server-side error message if any -->
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger" style="display: none; color:white;">@ViewBag.ErrorMessage</div>
+            }
+
+            <!-- Global error message -->
+            @* <div id="error-message" class="alert alert-danger" style="display: none; color:white;"> *@
+            @*     Please fill out all required fields. *@
+            @* </div> *@
+
+            <form asp-controller="Login" asp-action="LoginPage" id="login-form" method="post" novalidate>
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="email">Email <span style="color:red"> *</span></label>
+                    <input type="email"
+                           class="form-control"
+                           id="email"
+                           name="email"
+                           required
+                           title="Please enter a valid email address (e.g., user@example.com)" />
+                    <small class="error-text" style="color: red; display: none;">Please enter a valid email address.</small>
+                </div>
+
+                <!-- Password field -->
+                <div class="form-group" style="position: relative;">
+                    <label for="password">Password <span style="color:red"> *</span></label>
+                    <div class="input-container">
+                        <input type="password"
+                               class="form-control"
+                               id="password"
+                               name="password"
+                               required />
+                        <small class="error-text" style="color: red; display: none;">Password is required.</small>
+                    </div>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('password', this)"
+                          style="position: absolute; top: 38px; right: 15px; cursor: pointer;">
+                        <i class="bx bx-hide"></i>
+                    </span>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+            document.getElementById('login-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form submission for custom validation
+
+                const form = event.target;
+                const errorMessage = document.getElementById('error-message');
+                const inputs = form.querySelectorAll('input'); // Select all input fields
+                let isValid = true;
+
+                // Clear all previous error states
+                inputs.forEach(input => {
+                    input.classList.remove('is-invalid');
+                    const errorText = input.parentElement.querySelector('.error-text');
+                    if (errorText) errorText.style.display = 'none';
+                });
+
+                // Validate each input field
+                inputs.forEach(input => {
+                    if (!input.value.trim() || (input.type === 'email' && !input.checkValidity())) {
+                        isValid = false;
+                        input.classList.add('is-invalid'); // Add red border to invalid fields
+                        const errorText = input.parentElement.querySelector('.error-text');
+                        if (errorText) errorText.style.display = 'block'; // Show field-specific error
+                    }
+                });
+
+                // Show or hide the global error message
+                if (!isValid) {
+                    errorMessage.style.display = 'block';
+                } else {
+                    errorMessage.style.display = 'none';
+                    form.submit(); // Submit the form if all fields are valid
+                }
+            });
+
+            // Add input event listener to each input field for dynamic error removal
+            const inputs = document.querySelectorAll('#login-form input');
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    if (this.value.trim() && (this.type !== 'email' || this.checkValidity())) {
+                        this.classList.remove('is-invalid'); // Remove red border
+                        const errorText = this.parentElement.querySelector('.error-text');
+                        if (errorText) errorText.style.display = 'none'; // Hide error text
+                    }
+                });
+            });
+
+            document.getElementById('email').addEventListener('input', function () {
+            const emailInput = this.value;
+            // const emailPattern = /^[a-zA-Z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+            const errorText = this.parentElement.querySelector('.error-text');
+
+            if (!emailPattern.test(emailInput)) {
+                this.classList.add('is-invalid');
+                errorText.style.display = 'block';
+            } else {
+                this.classList.remove('is-invalid');
+                errorText.style.display = 'none';
+            }
+        });
+
+
+            function togglePasswordVisibility(passwordId, icon) {
+                const passwordField = document.getElementById(passwordId);
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    icon.innerHTML = '<i class="bx bx-show"></i>';
+                } else {
+                    passwordField.type = 'password';
+                    icon.innerHTML = '<i class="bx bx-hide"></i>';
+                }
+            }
+    </script>
+
+    <style>
+        /* Style updates */
+        .is-invalid {
+            border-color: red !important;
+        }
+
+        .error-text {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+
+    <style>
+        /* Highlight invalid fields with a red border */
+        .is-invalid {
+            border-color: red !important;
+        }
+
+        /* Style for the global error message */
+        .alert-danger {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Style for individual field error messages */
+        .error-text {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* Ensure consistent width for inputs and error messages */
+        .input-container {
+            width: 100%; /* Adjust as needed, e.g., 300px */
+        }
+
+        .form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .error-text {
+            display: block;
+        }
+    </style>
+
+
+
+    <script>
+        // Show/Hide Password
+        function togglePasswordVisibility(fieldId, toggleIcon) {
+            const passwordField = document.getElementById(fieldId);
+            const icon = toggleIcon.querySelector("i");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("bx-hide");
+                icon.classList.add("bx-show");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("bx-show");
+                icon.classList.add("bx-hide");
+            }
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/loginpage.js"></script>
+</body>
+
+</html>

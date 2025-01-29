@@ -1,4 +1,4 @@
-@model InventorySystem.Models.DashboardViewModel
+﻿@model InventorySystem.Models.DashboardViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,27 @@
 <body>
     <h1 style="margin-left: 6px; margin-bottom: 10px;">Dashboard</h1>
     <div class="container">
- 
-        <!-- Row 1: Total Available and Out-of-Stock Products -->
+        <!-- Row 1: Product Additions Today, This Week, This Month, This Year -->
+        <div class="row">
+            <div class="card">
+                <h3>Products Added Today</h3>
+                <p>@Model.ProductsAddedToday</p>
+            </div>
+            <div class="card">
+                <h3>Products This Week</h3>
+                <p>@Model.ProductsAddedThisWeek</p>
+            </div>
+            <div class="card">
+                <h3>Products This Month</h3>
+                <p>@Model.ProductsAddedThisMonth</p>
+            </div>
+            <div class="card">
+                <h3>Products This Year</h3>
+                <p>@Model.ProductsAddedThisYear</p>
+            </div>
+        </div>
+
+        <!-- Row 2: Total Available and Out-of-Stock Products -->
         <div class="row">
             <div class="card">
                 <h3>Total Available Products</h3>
@@ -27,7 +46,7 @@
             </div>
         </div>
 
-        <!-- Row 2: Top 5 Products Charts -->
+        <!-- Row 3: Top 5 Products Charts -->
         <div class="row">
             <div class="chart-container">
                 <h3>Top 5 Products by Quantity</h3>
@@ -39,34 +58,13 @@
             </div>
         </div>
 
-        <!-- Row 3: Top 8 Categories by Stock -->
+        <!-- Row 4: Top 8 Categories by Stock -->
         <div class="row">
             <div class="chart-container">
                 <h3>Top 8 Categories by Stock</h3>
                 <canvas id="categoryChart" width="180" height="180"></canvas>
             </div>
         </div>
-
-        <!-- Row 5: Product Additions Today, This Week, This Month, This Year -->
-        <div class="row">
-            <div class="card">
-                <h3>Products Added Today</h3>
-                <p>@Model.ProductsAddedToday</p>
-            @* </div> *@
-            @* <div class="card"> *@
-                <h3>Products This Week</h3>
-                <p>@Model.ProductsAddedThisWeek</p>
-            </div>
-            <div class="card">
-                <h3>Products This Month</h3>
-                <p>@Model.ProductsAddedThisMonth</p>
-            @* </div> *@
-            @* <div class="card"> *@
-                <h3>Products This Year</h3>
-                <p>@Model.ProductsAddedThisYear</p>
-            </div>
-        </div>
-
     </div>
 
     <script>

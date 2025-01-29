@@ -75,35 +75,59 @@
     max-width: 290px;  /* Set a shorter width */
     word-wrap: break-word;  /* Allow the text to wrap */
 }
+/* Set width for the first column (Index) */
+th:nth-child(1), td:nth-child(1) { /* Index Column */
+    min-width: 40px; /* Adjust width for Index column */
+    text-align: center; /* Center-align the index */
+}
 
 /* Set width for Name, DateAdded, and Actions columns */
-th:nth-child(1), td:nth-child(1) { /* Name Column */
-    min-width: 120px;
-}
-
-th:nth-child(2), td:nth-child(2) { /* Descrption Column */
+th:nth-child(2), td:nth-child(2) { /* Name Column */
     min-width: 170px;
 }
+
+/*th:nth-child(3), td:nth-child(3) {*/ /* Description Column */
+    /*min-width: 150px;
+}*/
 
 th:nth-child(3), td:nth-child(3) { /* Price Column */
     min-width: 110px;
 }
 
+th:nth-child(4), td:nth-child(4) { /* Color Column */
+    min-width: 90px; /* Adjust for Color column */
+}
+
+th:nth-child(5), td:nth-child(5) { /* Category Column */
+    min-width: 100px; /* Adjust for Category column */
+}
+
+th:nth-child(6), td:nth-child(6) { /* Original Stock Column */
+    min-width: 50px; /* Adjust for Stock column */
+}
+
+th:nth-child(7), td:nth-child(7) { /* Current Stock Column */
+    min-width: 50px;
+}
+
 th:nth-child(8), td:nth-child(8) { /* Stock Status Column */
-    min-width: 155px;
+    min-width: 100px;
+}
+th:nth-child(9), td:nth-child(9) { /* Is Deing Sold Column */
+    min-width: 40px;
 }
 
 th:nth-child(10), td:nth-child(10) { /* Date Added Column */
-    min-width: 140px;
+    min-width: 130px;
 }
 
 th:nth-child(11), td:nth-child(11) { /* Actions Column */
-    min-width: 150px;
+    min-width: 130px;
 }
 
 /* Center-align the headers for Price, Stock Quantity, Category, Date Added, and Actions columns */
-th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10), th:nth-child(11),
-td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10), td:nth-child(11) {
+th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10), th:nth-child(11),
+td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10), td:nth-child(11) {
     text-align: center;
 }
 
@@ -112,6 +136,43 @@ td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child
     width: 100%;
     max-width: 90%; /* Limit the max width of the table */
 }
+
+/* Set width for Name, DateAdded, and Actions columns */
+/*th:nth-child(1), td:nth-child(1) {*/ /* Name Column */
+    /*min-width: 120px;
+}
+
+th:nth-child(2), td:nth-child(2) {*/ /* Descrption Column */
+    /*min-width: 170px;
+}
+
+th:nth-child(3), td:nth-child(3) {*/ /* Price Column */
+    /*min-width: 110px;
+}
+
+th:nth-child(8), td:nth-child(8) {*/ /* Stock Status Column */
+    /*min-width: 155px;
+}
+
+th:nth-child(10), td:nth-child(10) {*/ /* Date Added Column */
+    /*min-width: 140px;
+}
+
+th:nth-child(11), td:nth-child(11) {*/ /* Actions Column */
+    /*min-width: 150px;
+}*/
+
+/* Center-align the headers for Price, Stock Quantity, Category, Date Added, and Actions columns */
+/*th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6), th:nth-child(7), th:nth-child(8), th:nth-child(9), th:nth-child(10), th:nth-child(11),
+td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6), td:nth-child(7), td:nth-child(8), td:nth-child(9), td:nth-child(10), td:nth-child(11) {
+    text-align: center;
+}*/
+
+/* Styling for the table to make sure it takes up full width but is centered */
+/*.table {
+    width: 100%;
+    max-width: 90%;*/ /* Limit the max width of the table */
+/*}*/
 
 /* Pagination Styling */
 .pagination-container {

@@ -5,7 +5,7 @@ using BCrypt;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
-namespace Inventory.Controllers
+namespace InventorySystem.Controllers
 {
     public class UsersController : Controller
     {
@@ -69,22 +69,25 @@ namespace Inventory.Controllers
                // Status = Status,  // "Active" or "Inactive"
                 Password = hashedPassword,  // Store the hashed password
                 IsActive = IsActive = true// Set the IsActive based on the status
-            };
 
+
+            };
+            _context.Users.Add(newUser);
+            await _context.SaveChangesAsync();
             try
             {
-                _context.Users.Add(newUser);
-                await _context.SaveChangesAsync();
+
+               
 
 
                 var newUserProfile = new Profile
                 {
+                    Id = newUser.Id,  // Link the profile to the newly created user
                     FullName = newUser.FullName,
                     Email = newUser.Email,
-                    Id = newUser.Id  // Link the profile to the newly created user
                 };
 
-                _context.UserProfiles.Add(newUserProfile);
+                _context.Profiles.Add(newUserProfile);
                 await _context.SaveChangesAsync();
 
                 TempData["SuccessMessage"] = "User added successfully!";
@@ -138,12 +141,12 @@ namespace Inventory.Controllers
             }
 
             // Disable the foreign key constraint temporarily
-            _context.Database.ExecuteSqlRaw("ALTER TABLE UserProfiles NOCHECK CONSTRAINT FK_UserProfiles_Users_Email");
+            //_context.Database.ExecuteSqlRaw("ALTER TABLE Profiles NOCHECK CONSTRAINT FK_UserProfiles_Users_Email");
 
             try
             {
                 // Update the email in UserProfiles first
-                var userProfile = _context.UserProfiles.FirstOrDefault(up => up.Email == user.Email);
+                var userProfile = _context.Profiles.FirstOrDefault(up => up.Email == user.Email);
                 if (userProfile != null)
                 {
                     // Update the email in UserProfiles
@@ -169,11 +172,11 @@ namespace Inventory.Controllers
             {
                 TempData["ErrorMessage"] = $"Error occurred: {ex.Message}";
             }
-            finally
-            {
-                // Re-enable the foreign key constraint and validate data integrity
-                _context.Database.ExecuteSqlRaw("ALTER TABLE UserProfiles WITH CHECK CHECK CONSTRAINT FK_UserProfiles_Users_Email");
-            }
+            //finally
+            //{
+            //    // Re-enable the foreign key constraint and validate data integrity
+            //    //_context.Database.ExecuteSqlRaw("ALTER TABLE Profiles WITH CHECK CHECK CONSTRAINT FK_UserProfiles_Users_Email");
+            //}
 
             return RedirectToAction("Users");
         }

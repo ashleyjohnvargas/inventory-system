@@ -83,7 +83,8 @@
         <h2 class="mb-0 fw-bold" style="font-size: 1.8rem; color: #343a40;">Add New User</h2>
     </div>
 
-    <form asp-action="AddUser" method="post">
+
+    <form asp-action="AddUser" method="post" id="addUser">
         <div class="form-group mb-4">
             <label for="FullName" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Full Name</label>
             <input type="text" class="form-control form-control-lg" id="FullName" name="FullName" required>
@@ -112,14 +113,29 @@
 
 
         <div class="text-center">
-            <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;">
+            <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" onclick="confirmAddUser()">
                 <i class="bx bxs-save"></i> Add User
             </button>
+            <a asp-action="Users" class="btn btn-secondary">Cancel</a>
+
         </div>
     </form>
 
 
 </div>
+<script>
+    // Function for adding user confirmation
+    function confirmAddUser() {
+        const userConfirmed = confirm("Are you sure you want to add this user?");
+        if (userConfirmed) {
+            // Submit the form or perform the add user action
+            document.getElementById('addUser').submit();  // Replace with your actual form id
+            alert("User added successfully!");
+        } else {
+            alert("Action canceled.");
+        }
+    }
+</script>
 <script> 
 // Show/Hide Password
         function togglePasswordVisibility(fieldId, toggleIcon) {

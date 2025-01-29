@@ -8,13 +8,15 @@ namespace InventorySystem.Models
         [Key]
         public int Id { get; set; } // Auto-incremented primary key
 
-        [Required]
-        [MaxLength(255)]
+        [Required(ErrorMessage = "Product Name is required.")]
+        [MaxLength(255, ErrorMessage = "Product Name cannot exceed 255 characters.")]
         public string Name { get; set; } // Product name with a maximum length of 255
 
+        [StringLength(1000, ErrorMessage = "Description cannot exceed 1000 characters.")]
         public string? Description { get; set; } // Optional, allows variable-length text with no defined limit
 
-        [Required]
+        [Required(ErrorMessage = "Price is required.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Price must be a positive value.")]
         //[Range(0, (double)decimal.MaxValue)]
         public decimal Price { get; set; } // Decimal with precision 18, scale 2, must be non-negative
 

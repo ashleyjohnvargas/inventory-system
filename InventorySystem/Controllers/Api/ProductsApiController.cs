@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 
-namespace InventorySystem.Controllers.Api
+namespace InventorySystem.Controllers.Api 
 {
     [Route("api/[controller]")]
     [ApiController] // Specifies that this is an API controller
@@ -19,7 +19,7 @@ namespace InventorySystem.Controllers.Api
         // included in the routing. Meaning, the name of the action will be put in the action syntax above. But you can remove that
         // just like this: [Route("api/[controller]")]. But since there's no action, you'll need to include this: [HttpGet("GetAllProducts")]
         // above this action name below:
-
+        
         // Route: api/ProductsApi/GetAllProducts
         [HttpGet("GetAllProducts")]
         public IActionResult GetAllProducts()
@@ -29,12 +29,10 @@ namespace InventorySystem.Controllers.Api
             //                         .ToList();
             // Meaning, all the products will be passed to the Ecommerce even though they are soft deleted in the Inventory
             var products = _context.Products
-                                    .Where(p => p.StockStatus != "Out-of-Stock")
+                                    // .Where(p => p.StockStatus != "Out-of-Stock")
                                     .ToList();
             return Ok(products);
         }
-
-
 
         // Route: api/ProductsApi/EditProductFromEcommerce
         [HttpPost("EditProductFromEcommerce")]
@@ -87,6 +85,47 @@ namespace InventorySystem.Controllers.Api
             Console.WriteLine("Product set as not being sold in InventorySystem.");
 
             return Ok(new { Message = "Product set as not being sold in InventorySystem." });
+        }
+
+
+        // Route: api/ProductsApi/UpdateStock
+        [HttpPost("UpdateStock")]
+        public IActionResult UpdateStock([FromBody] List<ProductStockUpdateModel> stockUpdates)
+        {
+            foreach (var update in stockUpdates)
+            {
+                var product = _context.Products.FirstOrDefault(p => p.Id == update.ProductId);
+                if (product != null)
+                {
+                    product.CurrentStock -= update.Quantity;
+                    
+                    // Update StockStatus based on CurrentStock and OriginalStock
+                    if (product.CurrentStock < 0)
+                    {
+                        product.CurrentStock = 0;
+                    }
+                    else
+                    {
+                        var stockThreshold = 0.1 * product.OriginalStock;
+                        
+                        product.StockStatus = product.CurrentStock == 0
+                            ? "Out-of-Stock"
+                            : product.CurrentStock < stockThreshold
+                                ? "Low Stock"
+                                : "In Stock";
+
+                        // Set IsBeingSold to false if CurrentStock is 0 or StockStatus is "Out-of-Stock"
+                        product.IsBeingSold = product.CurrentStock > 0 && product.StockStatus != "Out-of-Stock";
+                    }
+                }
+                else
+                {
+                    return NotFound($"Product {update.ProductId} not found.");
+                }
+            }
+
+            _context.SaveChanges();
+            return Ok(new { Message = "Stock updated successfully." });
         }
 
     }

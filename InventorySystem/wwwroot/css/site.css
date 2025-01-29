@@ -52,10 +52,12 @@ header {
 }
 
 .navbar {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  justify-content:flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    min-height: 100vh; /* Ensures it spans the full viewport height */
+    height: 100%; /* For browsers that support flexbox or grid */
 }
 
 .navbar-brand a {
