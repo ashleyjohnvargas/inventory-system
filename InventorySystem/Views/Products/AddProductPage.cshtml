@@ -56,6 +56,7 @@
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
             <div class="card-body">
                 <form asp-action="AddProduct" method="post"  novalidate>
+                    @Html.AntiForgeryToken()
                     <!-- Product Name -->
                     <div class="form-group mb-4">
                         <label for="Name" class="fw-semibold" style="font-size: 1.1rem; color: #555; ">Product Name <span style="color:red"> *</span></label>
@@ -124,6 +125,23 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    // Check product name uniqueness
+    document.getElementById("Name").addEventListener("blur", function () {
+        var name = this.value;
+        fetch(`/Product/CheckProductName?name=${name}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.exists) {
+                    alert("Product name already exists. Please choose a different name.");
+                    this.value = "";
+                    this.focus();
+                }
+            });
+    });
+</script>
 
 <script>
     function confirmSubmit() {

@@ -51,7 +51,7 @@
             }
             @if (ViewData["ErrorMessage"] != null)
             {
-                <div class="alert alert-danger mt-3 text-center" style="display: none; color:white;">
+                <div class="alert alert-danger mt-3 text-center" style="color:white;">
                     @ViewData["ErrorMessage"]
                 </div>
             }
@@ -62,6 +62,11 @@
                     @ViewData["SuccessMessage"]
                 </div>
             }
+            @* @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage)) *@
+            @* { *@
+            @*     <div class="alert alert-danger" style="color:white;">@ViewBag.ErrorMessage</div> *@
+            @* } *@
+
         <!-- Display server-side error message if any -->
         @if (ViewBag.ErrorMessage != null)
         {
@@ -73,7 +78,7 @@
             Please fill out all required fields.
         </div>
 
-        <form asp-controller="Login" asp-action="LoginPage" id="login-form" method="post" novalidate>
+        <form asp-controller="Login" asp-action="LoginSubmit" id="login-form" method="post" novalidate>
             <!-- Email field -->
            <div class="form-group">
                     <label for="email">Email <span style="color:red"> *</span></label>

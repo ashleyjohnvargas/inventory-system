@@ -1,14 +1,26 @@
 using InventorySystem.Models;
 using Microsoft.EntityFrameworkCore;
 using InventorySystem.Services;
+using static InventorySystem.Controllers.LoginController;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Inventory service
+//// Ecommerce service -- Deployed
+//builder.Services.AddHttpClient<EcommerceService>(client =>
+//{
+//    client.BaseAddress = new Uri("https://gizmodeecommerce.azurewebsites.net/"); // Replace with Ecommerce System URL //
+//});
+//builder.Services.AddLocalization();
+
+
+// Ecommerce service for Local host
 builder.Services.AddHttpClient<EcommerceService>(client =>
 {
-    client.BaseAddress = new Uri("https://gizmodeecommerce.azurewebsites.net"); // Replace with Inventory System URL //
+    client.BaseAddress = new Uri("https://localhost:44385/"); // Replace with Ecommerce System URL //
 });
+builder.Services.AddLocalization();
 
 
 // Add services to the container.
@@ -38,9 +50,27 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowEcommerceSystem", policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins("https://localhost:44385", "https://gizmodeecommerce.azurewebsites.net/") // Replace with your actual front-end URLs
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
+
+// Add background service for checking inactive users
+builder.Services.AddHostedService<InactiveUserChecker>();
+
+//builder.Services.AddControllersWithViews(options => {
+//    options.Filters.Add(new AuthorizeFilter());
+//});
+
+// configure authentication
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.LoginPath = "/Login/LoginPage"; // Redirect to login if unauthorized
+            options.LogoutPath = "/Logout";   // Redirect when logging out
+            options.AccessDeniedPath = "/Login/AccessDenied"; // Handle access denied scenario
+        });
 
 // Add session services to the container
 builder.Services.AddDistributedMemoryCache(); // Adds in-memory caching for session
@@ -49,7 +79,23 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout as per your requirement
     options.Cookie.HttpOnly = true; // Only accessible by the server
     options.Cookie.IsEssential = true; // Necessary for session management
-});    
+});
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Events.OnRedirectToLogin = context =>
+    {
+        // Redirect to the login page if the user is not authenticated
+        context.Response.Redirect("/Account/Login");
+        return Task.CompletedTask;
+    };
+});
+
+// Configure Kestrel to handle larger query strings by increasing max request body size
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 10 * 1024; // Set max body size to 10 KB (adjust as needed)
+});
 
 var app = builder.Build();
 
@@ -61,8 +107,11 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseStatusCodePagesWithReExecute("/Home/NotFound", "?code={0}"); // Handle 404 page
     app.UseHsts();
 }
+
+app.UseRequestLocalization("en-PH");
 
 //// Configure the HTTP request pipeline.
 //if (!app.Environment.IsDevelopment())
@@ -80,16 +129,16 @@ app.UseCors("AllowEcommerceSystem");
 
 // Add session middleware to the request pipeline
 app.UseSession(); // This should come before UseAuthorization
-
+app.UseAuthentication(); // This should be placed before UseAuthorization
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Login}/{action=LoginPage}/{id?}");
 
 //app.MapControllerRoute(
 //    name: "default",
-//    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+//    pattern: "{controller=Login}/{action=LoginPage}/{id?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
 
 app.Run();

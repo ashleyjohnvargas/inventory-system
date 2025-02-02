@@ -85,6 +85,7 @@
 
 
     <form asp-action="AddUser" method="post" id="addUser">
+        @Html.AntiForgeryToken()
         <div class="form-group mb-4">
             <label for="FullName" class="fw-semibold" style="font-size: 1.1rem; color: #555;">Full Name</label>
             <input type="text" class="form-control form-control-lg" id="FullName" name="FullName" required>

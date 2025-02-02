@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InventorySystem.Controllers
 {
@@ -14,6 +15,7 @@ namespace InventorySystem.Controllers
         }
 
         // Display the profile page
+        [Authorize]
         public IActionResult ProfilePage()
         {
             // Retrieve the logged-in user's ID from session (as string) and convert to int
@@ -48,7 +50,8 @@ namespace InventorySystem.Controllers
             }
             return View(profile);
         }
-
+       
+        [Authorize]
         public IActionResult EditProfile()
         {
             // Retrieve the logged-in user's ID from session (as string) and convert to int
@@ -56,13 +59,21 @@ namespace InventorySystem.Controllers
             if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
             {
                 // If the session doesn't contain a valid UserId, redirect to login page
+                _logger.LogWarning("EditProfile: No valid UserId found in session. Redirecting to login.");
                 return RedirectToAction("LoginPage", "Login");
             }
             var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
+            if (profile == null)
+            {
+                _logger.LogWarning($"EditProfile: No profile found for UserId {userId}. Redirecting to login.");
+                TempData["ErrorMessage"] = "Profile not found.";
+                return RedirectToAction("LoginPage", "Login");
+            }
             return View(profile);
         }
 
         // Update profile
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult UpdateProfile(Profile model)
         {
@@ -106,6 +117,7 @@ namespace InventorySystem.Controllers
         }
 
         // Display the EditPasswordPage
+        [Authorize]
         public IActionResult ChangePasswordPage()
         {
             return View();
@@ -113,6 +125,7 @@ namespace InventorySystem.Controllers
 
         // Change or Update the password
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ChangePassword(string currentPassword, string newPassword, string confirmPassword)
         {
             // Retrieve the logged-in user's ID from session (as string) and convert to int

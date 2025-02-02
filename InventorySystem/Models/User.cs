@@ -23,5 +23,6 @@ namespace InventorySystem.Models
         public required string Password { get; set; } // Store hashed passwords
         //public Profile Profile { get; set; } // Navigation Property
 
+        public DateTime? LastLogin { get; set; }
     }
 }

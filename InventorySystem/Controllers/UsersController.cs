@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using InventorySystem.Models;
 using BCrypt;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace InventorySystem.Controllers
@@ -15,6 +16,18 @@ namespace InventorySystem.Controllers
         {
             _context = context;
         }
+        [Authorize]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View(); // Redirect to an access-denied page
+        }
+
+        [Authorize] //(Roles = "Admin")
         public async Task<IActionResult> Users()
         {
             try
@@ -44,13 +57,15 @@ namespace InventorySystem.Controllers
 
        // GET: Display the Add User form
        [HttpGet]
+       [Authorize]
         public IActionResult AddUser()
         {
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddUser(string FullName, string Email, string Password, bool IsActive)
         {
             if (string.IsNullOrEmpty(FullName) || string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
@@ -102,6 +117,7 @@ namespace InventorySystem.Controllers
         }
 
         // Display the Edit User page
+        [Authorize]
         public IActionResult EditUser(int id)
         {
             var user = _context.Users.FirstOrDefault(u => u.Id == id);
@@ -126,6 +142,7 @@ namespace InventorySystem.Controllers
 
         // Handle form submission to update user
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult EditUser(UserViewModel model)
         {
             if (!ModelState.IsValid)

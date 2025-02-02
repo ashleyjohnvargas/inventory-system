@@ -2,6 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace InventorySystem.Controllers
 {
@@ -13,9 +15,53 @@ namespace InventorySystem.Controllers
         {
             _context = context;
         }
+        //[Authorize]
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Error()
+        //{
+        //    var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+        //    if (exceptionHandlerPathFeature != null)
+        //    {
+        //        var exception = exceptionHandlerPathFeature.Error;
+        //        // Log the exception or handle it here
+        //    }
+        //    return View();
+        //}
+        public IActionResult AccessDenied()
+        {
+            return View(); // Redirect to an access-denied page
+        }
 
+
+        // Handle generic errors like 500
+        [Route("/Home/Error")]
+        public IActionResult Error()
+        {
+            return View();  // This will load Views/Shared/Error.cshtml (you can customize this page)
+        }
+
+        // Handle 404 error (not found)
+        [Route("/Home/NotFound")]
+        public IActionResult NotFound(int? code)
+        {
+            if (code.HasValue && code.Value == 404)
+            {
+                return View();  // This will load Views/Shared/NotFound.cshtml
+            }
+            return RedirectToAction("Error");  // Fallback to generic error if code isn't recognized
+        }
+
+        [Authorize] //(Roles = "Admin")
         public IActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+
             // Total number of products
             var totalProducts = _context.Products.Count(p => !p.IsDeleted);
 

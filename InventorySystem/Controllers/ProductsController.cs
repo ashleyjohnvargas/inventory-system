@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 using InventorySystem.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InventorySystem.Controllers
 {
@@ -39,8 +40,19 @@ namespace InventorySystem.Controllers
             _context = context;
             _ecommerceService = ecommerceService;
         }
+        [Authorize]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View(); // Redirect to an access-denied page
+        }
 
         // MVC Route: ProductsPage
+        [Authorize] //(Roles = "Admin")
         public IActionResult ProductsPage(int page = 1)
         {
             int pageSize = 10;  // Number of products per page
@@ -67,13 +79,15 @@ namespace InventorySystem.Controllers
 
 
         // MVC Route: AddProduct
+        [Authorize]
         public IActionResult AddProductPage()
         {
             return View();
         }
 
         // POST: AddProduct
-        //[ValidateAntiForgeryToken]
+        [Authorize] //(Roles = "Admin")
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult AddProduct(Product product)
         {
@@ -123,6 +137,7 @@ namespace InventorySystem.Controllers
 
 
         // GET: EditProduct
+        [Authorize]
         public IActionResult EditProductPage(int id)
         {
             var product = _context.Products.Find(id);

@@ -20,6 +20,7 @@
                 
                 
                 <form asp-action="EditProduct" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
                     <!-- Hidden Product ID -->
                     <input type="hidden" name="Id" asp-for="Id" />
 

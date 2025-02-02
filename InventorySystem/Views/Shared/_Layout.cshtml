@@ -6,6 +6,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+
     <title>@ViewData["Title"] Inventory Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -89,6 +93,16 @@
 
                         </li>
                     }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <p>Welcome, @User.Identity.Name!</p>
+                        <a asp-controller="Login" asp-action="Logout">Logout</a>
+                        }
+                        else
+                        {
+                        <a asp-controller="Login" asp-action="LoginPage">Login</a>
+                        }
+
                     </div>
                 </ul>
             </nav>
@@ -150,6 +164,23 @@
     //     }
     //     return confirmation;
     // }
+    </script>
+    <script type="text/javascript">
+        if (/* Check for user session or cookie */) {
+            // Redirect to login page
+            window.location.href = '/Account/Login';
+        }
+    </script>
+    @* <script> *@
+    @*     if (window.performance && window.performance.navigation.type === 2) { *@
+    @*         // If the user navigated using the back button, force a reload *@
+    @*         window.location.reload(); *@
+    @*     } *@
+    @* </script> *@
+    <script>
+        if (performance.navigation.type === 2) { // Detect back button navigation
+            location.reload(true); // Force reload to clear cache
+        }
     </script>
 </body>
 

@@ -83,6 +83,7 @@
     </div>
 
     <form asp-action="EditUser" method="post" id="editUser">
+        @Html.AntiForgeryToken()
         <!-- Hidden Input for User ID -->
         <input type="hidden" name="Id" value="@Model.Id" />
 

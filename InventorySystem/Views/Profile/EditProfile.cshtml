@@ -8,10 +8,19 @@
 <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
 <body> 
 <div class="fade-in">
-    @{
-        var successMessage = TempData["SuccessMessage"];
-        var errorMessage = TempData["ErrorMessage"];
-    }
+    @* @{ *@
+    @*     var successMessage = TempData["SuccessMessage"]; *@
+    @*     var errorMessage = TempData["ErrorMessage"]; *@
+    @* } *@
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
 
     <!-- Page Header with Go Back Icon -->
     <div class="d-flex align-items-center mb-4" style="width: 1000px; margin: 20px 0 0 26px;">
@@ -26,6 +35,7 @@
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 750px; border-radius: 12px; background-color: #ffffff;">
             <div class="card-body">
                 <form asp-action="UpdateProfile" method="post" id="updateProfile">
+                        @Html.AntiForgeryToken()
                     <!-- Full Name -->
                     <div class="form-group mb-4">
                         @* <p style="font-size: 1.1rem; color: #555;">Full Name: </p> <!-- </strong> Context.Session.GetString("UserFullName")-->                         <input type="text" name="FullName" /> *@
@@ -94,7 +104,7 @@
         if (userConfirmed) {
             // Submit the form or perform the save changes action
             document.getElementById('updateProfile').submit();  // Replace with your actual form id
-            alert("Changes saved successfully!");
+            //alert("Changes saved successfully!");
         } else {
             alert("Save changes canceled.");
         }
