@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
     <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Expires" content="0" />
 
     <title>@ViewData["Title"] Inventory Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -52,11 +52,17 @@
         transform: translateX(5px);
         }
     </style>
+
 </head>
 
 <body>
+
+
+
     <div class="parent-container">
         <header>
+
+
             <nav class="navbar">
                 <div class="navbar-brand" >
                     <a asp-controller="Dashboard" asp-action="Index" style="font-weight: bold; margin-right:16px">
@@ -84,24 +90,26 @@
 
                     <div>
                     <!-- User session check -->
-                    @if (Context.Session.GetString("UserId") != null)
+                   @*@if (Context.Session.GetString("UserId") != null)
                     {
                         <li class="nav-item">
                             <i class="fa-solid fa-right-from-bracket custom-icon"></i>
                             <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Logout</a>
-                            @* <a asp-controller="Login" asp-action="Logout" class="logout" onclick="return confirmLogout(event);">Log Out</a> *@
 
                         </li>
+                    } *@ 
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                         <li class="nav-item">
+                            <i class="fa-solid fa-right-from-bracket custom-icon"></i>
+                            <a asp-controller="Login" asp-action="Logout" onclick="return confirmLogout(event);">Logout</a>
+                        </li>
                     }
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                        <p>Welcome, @User.Identity.Name!</p>
-                        <a asp-controller="Login" asp-action="Logout">Logout</a>
-                        }
-                        else
-                        {
-                        <a asp-controller="Login" asp-action="LoginPage">Login</a>
-                        }
+                    else
+                    {
+                    <a asp-controller="Login" asp-action="LoginPage">Login</a>
+                    }
 
                     </div>
                 </ul>
@@ -109,11 +117,24 @@
         </header>
 
         <!-- Positioned Welcome message at the top right -->
-        @if (Context.Session.GetString("UserId") != null)
+      @*@if (Context.Session.GetString("UserId") != null)
         {
             <div class="welcome-message">
                 Welcome, @Context.Session.GetString("UserFullName")
             </div>
+        } *@  
+
+        @if (User.Identity.IsAuthenticated)
+        {
+        <a asp-controller="Profile" asp-action="ProfilePage"> 
+            <div class="welcome-message">
+                Welcome, @User.Identity.Name!
+            </div>
+        </a>
+        }
+        else
+        {
+        <a asp-controller="Login" asp-action="LoginPage">Login</a>
         }
 
         <main>
@@ -148,6 +169,12 @@
   
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>

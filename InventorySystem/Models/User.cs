@@ -24,5 +24,7 @@ namespace InventorySystem.Models
         //public Profile Profile { get; set; } // Navigation Property
 
         public DateTime? LastLogin { get; set; }
+        public DateTime? LastPasswordChange { get; set; }
+
     }
 }

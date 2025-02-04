@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace InventorySystem.Controllers
 {
@@ -18,50 +19,54 @@ namespace InventorySystem.Controllers
         [Authorize]
         public IActionResult ProfilePage()
         {
-            // Retrieve the logged-in user's ID from session (as string) and convert to int
-            var userIdString = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+            // Retrieve the logged-in user's ID from the claims
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);  // Get the user ID from claims
+
+            if (string.IsNullOrEmpty(userId))
             {
-                // If the session doesn't contain a valid UserId, redirect to login page
-                //TempData["ErrorMessage"] = "User profile not found.";
+                // If the user ID is not found in claims, redirect to the login page
+                TempData["ErrorMessage"] = "User profile not found. Please login again.";
                 return RedirectToAction("LoginPage", "Login");
             }
 
-            // Log the UserId to the console (this will output to the console/logs)
+            // Log the UserId to the console (for debugging purposes)
             _logger.LogInformation($"Logged-in UserId: {userId}");
 
-
-            // Fetch user profile and user details
-            var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
-            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            // Fetch user profile and user details from the database
+            var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == int.Parse(userId)); // Use the correct relationship key
+            var user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
 
             if (profile == null)
             {
-                // Create a default profile for new users
+                // If the profile does not exist, create a default profile for new users
                 profile = new UserProfile
                 {
-                    FullName = "",
-                    Email = "",
+                    //Id = int.Parse(userId),  // Ensure the profile is linked to the correct user
+                    FullName = user?.FullName ?? "",  // Default to user's name if available
+                    Email = user?.Email ?? "",
                     PhoneNumber = "",
                     Address = ""
                 };
                 _context.UserProfiles.Add(profile);
                 _context.SaveChanges();
             }
-            return View(profile);
+
+            return View(profile);  // Pass the profile to the view
         }
-       
+
         [Authorize]
         public IActionResult EditProfile()
         {
-            // Retrieve the logged-in user's ID from session (as string) and convert to int
-            var userIdString = HttpContext.Session.GetString("UserId");
+            // Retrieve the logged-in user's ID from claims (instead of session)
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
             {
-                // If the session doesn't contain a valid UserId, redirect to login page
-                _logger.LogWarning("EditProfile: No valid UserId found in session. Redirecting to login.");
+                // If no valid UserId is found in the claims, redirect to login page
+                _logger.LogWarning("EditProfile: No valid UserId found in claims. Redirecting to login.");
                 return RedirectToAction("LoginPage", "Login");
             }
+
+            // Fetch the profile for the logged-in user
             var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
             if (profile == null)
             {
@@ -69,52 +74,160 @@ namespace InventorySystem.Controllers
                 TempData["ErrorMessage"] = "Profile not found.";
                 return RedirectToAction("LoginPage", "Login");
             }
+
+            // Return the profile to the view for editing
             return View(profile);
         }
 
-        // Update profile
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult UpdateProfile(Profile model)
         {
+            // Validate the model
             if (!ModelState.IsValid)
             {
                 return View("EditProfile", model);
             }
 
-            // Retrieve the logged-in user's ID from session (as string) and convert to int
-            var userIdString = HttpContext.Session.GetString("UserId");
+            // Retrieve the logged-in user's ID from claims (instead of session)
+            var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
             {
-                // If the session doesn't contain a valid UserId, redirect to login page
+                // If no valid UserId is found in claims, redirect to login page
                 return RedirectToAction("LoginPage", "Login");
             }
 
+            // Fetch the profile and user
             var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
             if (profile != null && user != null)
             {
-                // Update profile information
-                profile.FullName = user.FullName;
+                // Update the profile with the new data from the model
                 profile.PhoneNumber = model.PhoneNumber;
                 profile.Address = model.Address;
                 profile.Email = model.Email;
 
-                // Update email if changed
-                //user.FullName = model.FullName;
+                // Update the user's email (if necessary)
                 user.Email = model.Email;
-                // Update session with the new email
+
+                // Optionally, update other fields like FullName if needed
+                // user.FullName = model.FullName;
+
+                // Save changes to the database
+                _context.SaveChanges();
+
+                // Update session with the new email (if necessary)
                 HttpContext.Session.SetString("UserEmail", user.Email);
 
-                //HttpContext.Session.SetString("UserFullName", user.FullName);
-
-                _context.SaveChanges();
+                // Set a success message and redirect
                 TempData["SuccessMessage"] = "Profile updated successfully!";
             }
 
             return RedirectToAction("ProfilePage");
         }
+
+        // Display the profile page
+        //[Authorize]
+        //public IActionResult ProfilePage()
+        //{
+        //    // Retrieve the logged-in user's ID from session (as string) and convert to int
+        //    var userIdString = HttpContext.Session.GetString("UserId");
+        //    if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+        //    {
+        //        // If the session doesn't contain a valid UserId, redirect to login page
+        //        //TempData["ErrorMessage"] = "User profile not found.";
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+
+        //    // Log the UserId to the console (this will output to the console/logs)
+        //    _logger.LogInformation($"Logged-in UserId: {userId}");
+
+
+        //    // Fetch user profile and user details
+        //    var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
+        //    var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+
+        //    if (profile == null)
+        //    {
+        //        // Create a default profile for new users
+        //        profile = new UserProfile
+        //        {
+        //            FullName = "",
+        //            Email = "",
+        //            PhoneNumber = "",
+        //            Address = ""
+        //        };
+        //        _context.UserProfiles.Add(profile);
+        //        _context.SaveChanges();
+        //    }
+        //    return View(profile);
+        //}
+
+        //[Authorize]
+        //public IActionResult EditProfile()
+        //{
+        //    // Retrieve the logged-in user's ID from session (as string) and convert to int
+        //    var userIdString = HttpContext.Session.GetString("UserId");
+        //    if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+        //    {
+        //        // If the session doesn't contain a valid UserId, redirect to login page
+        //        _logger.LogWarning("EditProfile: No valid UserId found in session. Redirecting to login.");
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+        //    var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
+        //    if (profile == null)
+        //    {
+        //        _logger.LogWarning($"EditProfile: No profile found for UserId {userId}. Redirecting to login.");
+        //        TempData["ErrorMessage"] = "Profile not found.";
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+        //    return View(profile);
+        //}
+
+        //// Update profile
+        //[ValidateAntiForgeryToken]
+        //[HttpPost]
+        //public IActionResult UpdateProfile(Profile model)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("EditProfile", model);
+        //    }
+
+        //    // Retrieve the logged-in user's ID from session (as string) and convert to int
+        //    var userIdString = HttpContext.Session.GetString("UserId");
+        //    if (string.IsNullOrEmpty(userIdString) || !int.TryParse(userIdString, out int userId))
+        //    {
+        //        // If the session doesn't contain a valid UserId, redirect to login page
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+
+        //    var profile = _context.UserProfiles.FirstOrDefault(p => p.Id == userId);
+        //    var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+
+        //    if (profile != null && user != null)
+        //    {
+        //        // Update profile information
+        //        profile.FullName = user.FullName;
+        //        profile.PhoneNumber = model.PhoneNumber;
+        //        profile.Address = model.Address;
+        //        profile.Email = model.Email;
+
+        //        // Update email if changed
+        //        //user.FullName = model.FullName;
+        //        user.Email = model.Email;
+        //        // Update session with the new email
+        //        HttpContext.Session.SetString("UserEmail", user.Email);
+
+        //        //HttpContext.Session.SetString("UserFullName", user.FullName);
+
+        //        _context.SaveChanges();
+        //        TempData["SuccessMessage"] = "Profile updated successfully!";
+        //    }
+
+        //    return RedirectToAction("ProfilePage");
+        //}
 
         // Display the EditPasswordPage
         [Authorize]

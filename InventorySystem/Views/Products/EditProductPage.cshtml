@@ -19,7 +19,7 @@
             <div class="card-body">
                 
                 
-                <form asp-action="EditProduct" method="post" enctype="multipart/form-data">
+                <form asp-action="EditProduct" method="post" enctype="multipart/form-data" id="editProductForm">
                     @Html.AntiForgeryToken()
                     <!-- Hidden Product ID -->
                     <input type="hidden" name="Id" asp-for="Id" />
@@ -109,7 +109,7 @@
 
                     <!-- Submit Button -->
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" onclick="return confirmSubmit();">
+                        <button type="button" class="btn btn-success btn-lg px-5" style="border-radius: 25px; font-size: 1.1rem;" data-bs-toggle="modal" data-bs-target="#adminModal">
                             <i class="fa-solid fa-check-circle me-2"></i> Save Changes
                         </button>
                     </div>
@@ -118,6 +118,42 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for Admin Key Confirmation -->
+<div class="modal fade" id="adminModal" tabindex="-1" aria-labelledby="adminModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adminModalLabel">Admin Key Required</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="adminKey">Enter Admin Key:</label>
+                <input type="password" id="adminKey" class="form-control" placeholder="Admin Key" required />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="validateAdminKey()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validateAdminKey() {
+        var adminKey = document.getElementById("adminKey").value;
+        var correctAdminKey = "adminkey";  // Replace with your actual admin key
+
+        if (adminKey === correctAdminKey) {
+            // Proceed with form submission
+            document.getElementById("editProductForm").submit(); // Ensure the form has id="yourFormId"
+            $('#adminModal').modal('hide'); // Hide the modal
+        } else {
+            alert("Invalid Admin Key! Please try again.");
+        }
+    }
+</script>
+
 <script>
     function confirmSubmit() {
         // Display a confirmation dialog

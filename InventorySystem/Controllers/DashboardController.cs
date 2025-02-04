@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 using System.Linq;
@@ -34,6 +34,31 @@ namespace InventorySystem.Controllers
         {
             return View(); // Redirect to an access-denied page
         }
+        //public async Task<IActionResult> SecurePage()
+        //{
+        //    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (userId == null)
+        //    {
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+
+        //    var user = _context.Users.Find(int.Parse(userId));
+        //    if (user == null)
+        //    {
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+
+        //    var sessionPasswordChange = DateTime.Parse(User.FindFirst("LastPasswordChange")?.Value ?? "1900-01-01");
+
+        //    // 🔹 Force logout if password was changed after login
+        //    if (user.LastPasswordChange > sessionPasswordChange)
+        //    {
+        //        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //        return RedirectToAction("LoginPage", "Login");
+        //    }
+
+        //    return View();
+        //}
 
 
         // Handle generic errors like 500

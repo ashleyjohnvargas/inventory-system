@@ -38,14 +38,14 @@
                         <td>
                             @(user.IsActive ? "Active" : "Inactive")
                         </td>
-                        <td class="action-icons">
+                        <td class="action-icons" style="align-items: center;">
                             <a asp-action="EditUser" asp-route-id="@user.Id" title="Edit" style="color:#547AA5;font-size: 20px;"><i class="fas fa-edit edit"></i></a>
                             <!-- Form for deleting the unit -->
-                                <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" style="display:inline;" onsubmit="return confirmDelete();">
+                                <!-- <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" style="display:inline;" onsubmit="return confirmDelete();">
                                 <button type="submit" title="Delete" style="color:#C04A4A; background: none; border: none; padding: 0; width: fit-content; height: fit-content;">
                                     <i class="fas fa-trash delete" style="font-size: 20px;"></i>
                                 </button>
-                            </form>
+                                </form> -->
                         </td>
                     </tr>
                     index++;

@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using InventorySystem.Models;
 using InventorySystem.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace InventorySystem.Controllers
 {
@@ -49,6 +52,31 @@ namespace InventorySystem.Controllers
         public IActionResult AccessDenied()
         {
             return View(); // Redirect to an access-denied page
+        }
+        public async Task<IActionResult> SecurePage()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+
+            var user = _context.Users.Find(int.Parse(userId));
+            if (user == null)
+            {
+                return RedirectToAction("LoginPage", "Login");
+            }
+
+            var sessionPasswordChange = DateTime.Parse(User.FindFirst("LastPasswordChange")?.Value ?? "1900-01-01");
+
+            // ?? Force logout if password was changed after login
+            if (user.LastPasswordChange > sessionPasswordChange)
+            {
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return RedirectToAction("LoginPage", "Login");
+            }
+
+            return View();
         }
 
         // MVC Route: ProductsPage
@@ -148,7 +176,7 @@ namespace InventorySystem.Controllers
             return View(product);
         }
 
-        // POST: AddProduct
+        // POST: EditProduct
         [HttpPost]
         public async Task<IActionResult> EditProduct(Product product)
         {

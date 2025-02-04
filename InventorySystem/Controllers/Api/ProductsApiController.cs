@@ -28,10 +28,18 @@ namespace InventorySystem.Controllers.Api
             //                         .Where(p => !p.IsDeleted)
             //                         .ToList();
             // Meaning, all the products will be passed to the Ecommerce even though they are soft deleted in the Inventory
-            var products = _context.Products
+            try
+            {
+                var products = _context.Products
                                     // .Where(p => p.StockStatus != "Out-of-Stock")
                                     .ToList();
-            return Ok(products);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "Error occurred while fetching all products.");
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         // Route: api/ProductsApi/EditProductFromEcommerce

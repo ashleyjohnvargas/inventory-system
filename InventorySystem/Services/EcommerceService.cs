@@ -21,7 +21,10 @@ namespace InventorySystem.Services
             try
             {
                 // InventorySystem API endpoint for editing product details
-                string inventoryApiUrl = "api/ProductsApi/EditProductFromInventory";
+               // string inventoryApiUrl = "api/ProductsApi/EditProductFromInventory";
+                string inventoryApiUrl = "api/ProductsApi/EditProductFromEcommerce";
+                //                 string inventoryApiUrl = "https://gizmodeinventorysystem2.azurewebsites.net/api/ProductsApi/EditProductFromEcommerce";
+
 
                 // Send the product details as JSON to the InventorySystem API
                 // It used "PostAsJsonAsync" because product is not yet in JSON format, it is still an object or instance of Product model
