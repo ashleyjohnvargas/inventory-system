@@ -20,10 +20,7 @@ builder.Services.AddHttpClient<EcommerceService>(client =>
 //    client.BaseAddress = new Uri("https://gizmodeecommerce.azurewebsites.net"); // Replace with Ecommerce System URL //
 //});
 
-
-
-
-// Ecommerce service for Local host
+//Ecommerce service for Local host
 //builder.Services.AddHttpClient<EcommerceService>(client =>
 //{
 //    client.BaseAddress = new Uri("https://localhost:44385"); // Replace with Ecommerce System URL //

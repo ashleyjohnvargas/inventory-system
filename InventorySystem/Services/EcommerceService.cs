@@ -21,8 +21,8 @@ namespace InventorySystem.Services
             try
             {
                 // InventorySystem API endpoint for editing product details
-               // string inventoryApiUrl = "api/ProductsApi/EditProductFromInventory";
-                string inventoryApiUrl = "api/ProductsApi/EditProductFromEcommerce";
+               string inventoryApiUrl = "api/ProductsApi/EditProductFromInventory";
+               // string inventoryApiUrl = "api/ProductsApi/EditProductFromEcommerce";
                 //                 string inventoryApiUrl = "https://gizmodeinventorysystem2.azurewebsites.net/api/ProductsApi/EditProductFromEcommerce";
 
 
